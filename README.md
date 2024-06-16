@@ -19,8 +19,9 @@
 
 * [Características](#características)
 
-* [Aplicaciones](#aplicaciones)
+* [Creación del proyecto](#creación-de-proyecto)
 
+* [Instalación](#instalación-🔧)
 * [Acceso al proyecto](#📁-acceso-al-proyecto)
 
 * [Tecnologías](#✔️-tecnologías)
@@ -50,8 +51,53 @@ Aluraflix es una plataforma diseñada para gestionar vídeos, con funcionalidade
 - `Consumo de API:`Realizar peticiones HTTP a una API para obtener, enviar, actualizar y eliminar datos de videos.
 - `Manejo de Rutas:`Implementar navegación entre diferentes vistas o páginas dentro de la aplicación utilizando herramientas como React Router.
 
-## Aplicaciones
-### Instalación 🔧
+## Creación de proyecto
+Ejecutar el comando:
+
+    npm create vite@latest
+
+Nombre: 
+    
+    challenge-aluraflix
+
+Seleccionar:
+
+    React
+    JavaScript
+Ejecutar:
+
+    cd challenge-aluraflix
+    npm install
+    npm rin dev
+
+### Opcional
+En el script del package.json se agrega `start` 
+
+        "scripts": {
+        "start": "vite",
+        "dev": "vite",
+        },
+
+Se ejecuta el proyecto con:
+
+     npm start
+Inicia el proyecto en [http://localhost:5173/](http://localhost:5173/) 
+
+## Instalación 🔧
+1. Instalar [react-router-dom](https://www.npmjs.com/package/react-router-dom), ejecutando el comando:
+
+        npm i react-router-dom
+
+    Es una dependecia de react que se utiliza para trabajar con las rutas.
+
+
+2. Instalar [react-icons](https://react-icons.github.io/react-icons/search/#q=MdFavorite)
+
+        npm install react-icons
+
+    Realizar la importación:
+
+        import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
 ## 📁 Acceso al proyecto
 
