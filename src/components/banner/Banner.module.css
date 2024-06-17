@@ -1,8 +1,13 @@
 .layer {
     width: 100%;
-    height: 290px;
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
+    overflow-y: hidden;
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
 }
 
 .gradient {
@@ -10,26 +15,68 @@
     width: 100%;
     opacity: .85;
     background-color: var(--color-bg-edit);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .content, .title, .subtitle {
     color: var(--color-white-smoke);
     background-color: transparent;
     opacity: 1;
-    top: 40%;
     margin-left: 1.5rem;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 4rem;
 }
 
 .title {
-    position: absolute;
     font-size: clamp(2rem, 2.4vw, 3rem);
     font-weight: bold;
+    margin-top: 1rem;
 }
 
 .subtitle {
-    position: absolute;
     margin-top: 1rem;
-    top: 50%;
     font-size: clamp(1rem, 1vw, 1.25rem);
     opacity: 0.7;
+}
+
+.container {
+    color: antiquewhite;
+    background-color: red;
+    padding: 1rem;
+    width: 40.487rem;
+    height: 20.849rem;
+    z-index: 1;
+    margin-right: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .layer {
+        height: auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+        position: static;
+        text-align: center;
+        margin: 1rem auto;
+    }
+
+    .container {
+        position: static;
+        width: 100%;
+        height: 100%;
+        margin-left: 0;
+        
+    }
 }
