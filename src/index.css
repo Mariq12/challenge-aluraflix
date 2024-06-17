@@ -2,3 +2,20 @@
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
+
+:root {
+  --color-bg: #191919;
+  --color-bg-edit: #03122F;
+  --color-backend: #00C86F;
+  --color-frontend: #6BD1FF;
+  --color-inov-gestao: #FFBA05;
+  --color-error: #FF0000;
+  --color-text-red: #E53935;
+  --color-light-gray: #A5A5A5;
+  --color-white: #FFFFFF;
+  --color-white-smoke: #F5F5F5;
+  --color-blue: #007BFF;
+  --color-blue-light: #2271D1;
+  --color-dark-gray-border: #262626;
+  --color-black: #000000;
+}
