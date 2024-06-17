@@ -8,7 +8,28 @@
 .gradient {
     height: 100%;
     width: 100%;
-    opacity: .5;
+    opacity: .85;
     background-color: var(--color-bg-edit);
 }
 
+.content, .title, .subtitle {
+    color: var(--color-white-smoke);
+    background-color: transparent;
+    opacity: 1;
+    top: 40%;
+    margin-left: 1.5rem;
+}
+
+.title {
+    position: absolute;
+    font-size: clamp(2rem, 2.4vw, 3rem);
+    font-weight: bold;
+}
+
+.subtitle {
+    position: absolute;
+    margin-top: 1rem;
+    top: 50%;
+    font-size: clamp(1rem, 1vw, 1.25rem);
+    opacity: 0.7;
+}
