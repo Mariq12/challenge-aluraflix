@@ -99,6 +99,12 @@ Inicia el proyecto en [http://localhost:5173/](http://localhost:5173/)
 
         import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
+3. Instalar del paquete de **[React-Loaders-Kit](https://seimodei.github.io/react-loaders-kit-examples/)**, ejecuando en cmd dentro del proyecto:
+
+    npm i --save react-loaders-kit
+
+2. Creación del componente Loading.
+3. Conectar en el App.jsx.
 ## 📁 Acceso al proyecto
 
 Ver la demo en [Vercel]()
