@@ -1,5 +1,5 @@
 .link {
-    font-size: clamp(0.8rem, 1.25rem);
+    font-size: clamp(0.7rem, 1.042vw, 1.25rem); 
     font-weight: bold;
     padding: 0.85rem;
     color: var(--color-white);
@@ -7,12 +7,12 @@
     border: 2px solid var(--color-white);
     margin: 0 0.8rem;
     text-decoration: none;
-    flex: 1;
     text-align: center;
     opacity: 0.9;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 6.35rem;
 }
 
 .link:hover {

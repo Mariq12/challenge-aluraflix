@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import styles from "./Header.module.css"
 import logo from "../../assets/logo.png"
 import HeaderLink from "../headerLink/HeaderLink";
+import { IoMenu } from "react-icons/io5";
 
 function Header(){
     return(
@@ -12,8 +13,11 @@ function Header(){
                 </section>
             </Link>
             <nav className={styles.nav}>
-                <HeaderLink url="./">INICIO</HeaderLink>
-                <HeaderLink url="./favorites">NUEVO VIDEO</HeaderLink>
+                <div className={styles.navLinks}>
+                    <HeaderLink url="./">INICIO</HeaderLink>
+                    <HeaderLink url="./newVideo">NUEVO VIDEO</HeaderLink>
+                </div>
+                <IoMenu className={styles.menuIcon} />
             </nav>
         </header>
     )
