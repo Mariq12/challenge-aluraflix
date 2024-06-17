@@ -1,0 +1,25 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.8rem 2.5rem;
+    background-color: var(--color-dark-gray-border);
+}
+a{ text-decoration: none;}
+
+.logoContainer{
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    width: 35%;
+    background-color: var(--color-dark-gray-border);
+}
+
+.header img {
+    align-self: start;
+}

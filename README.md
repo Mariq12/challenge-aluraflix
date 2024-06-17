@@ -95,16 +95,39 @@ Inicia el proyecto en [http://localhost:5173/](http://localhost:5173/)
 
         npm install react-icons
 
-    Realizar la importación:
-
-        import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
-
 3. Instalar del paquete de **[React-Loaders-Kit](https://seimodei.github.io/react-loaders-kit-examples/)**, ejecuando en cmd dentro del proyecto:
 
     npm i --save react-loaders-kit
 
-2. Creación del componente Loading.
-3. Conectar en el App.jsx.
+    Creación del componente Loading.
+    Conectar en el App.jsx.
+
+4. Instalar [Styled Components](https://www.npmjs.com/package/styled-components), para escribir css en el JavaScript.
+
+        npm i styled-components
+
+    Documentación de [styled-components](https://styled-components.com/docs/basics)
+
+5. Descargar [Normalize.css](https://necolas.github.io/normalize.css/), para que los navegadores muestren los elementos de forma consistente y acorde con los estándares modernos.
+
+    **Pasos a realizar:**
+    1. Ingresar a Normalize.css.
+    2. Dar clic en descargar.
+    3. Seleccionar el contenido con:
+    
+            Ctrl + a (selecciona)
+
+            Ctrl + v (pega)
+
+        Se pega el dentro del archio GlobalStyles.jsx, pero se debe eliminar los comentarios.
+
+        *Ruta:*
+
+            src
+            ├── components
+            │   ├── globalStyles
+            │   │   ├── GlobalStyles.jsx
+
 ## 📁 Acceso al proyecto
 
 Ver la demo en [Vercel]()
