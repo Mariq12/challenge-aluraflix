@@ -1,18 +1,18 @@
 import { useState } from "react";
 import Banner from "../../components/banner/Banner";
-import Team from "../../components/category/Category";
+import Category from "../../components/category/Category";
 import cardsData from "../../data/CardsData";
-import teamData from "../../data/TeamData";
+import categoryData from "../../data/CategoryData";
 
 function Home() {
     const [cards] = useState(cardsData);
-    const [teams] = useState(teamData);
+    const [categories] = useState(categoryData);
 
     return (
         <>
             <Banner />
-            {teams.map((team) => (
-                <Team
+            {categories.map((team) => (
+                <Category
                     datos={team}
                     key={team.id}
                     cards={cards.filter(card => card.team === team.name)}

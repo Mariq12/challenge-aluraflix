@@ -1,5 +1,5 @@
 
-const teamData = [
+const categoryData = [
   {
     id: 1,
     name: "FRONT END",
@@ -17,4 +17,4 @@ const teamData = [
   }
 ];
 
-export default teamData;
+export default categoryData;
