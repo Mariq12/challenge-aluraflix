@@ -1,18 +1,15 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import './Card.css';
 
-
-const Card = (props) => {
-    const { title,  photo, link } = props.datos; 
-    const { primaryColor } = props;
+const Card = ({ datos, primaryColor, onClick }) => {
+    const { title, photo } = datos;
 
     return (
-        <Link to={link} className="card">
+        <div className="card" onClick={onClick} style={{ cursor: 'pointer' }}>
             <figure className="card__header" style={{ backgroundColor: primaryColor }}>
                 <img src={photo} alt={title} />
             </figure>
-        </Link>
+        </div>
     );
 };
 
@@ -21,8 +18,9 @@ Card.propTypes = {
     datos: PropTypes.shape({
         photo: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        link: PropTypes.string.isRequired,
     }).isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 export default Card;
+

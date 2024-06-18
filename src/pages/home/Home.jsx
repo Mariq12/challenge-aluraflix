@@ -7,15 +7,21 @@ import categoryData from "../../data/CategoryData";
 function Home() {
     const [cards] = useState(cardsData);
     const [categories] = useState(categoryData);
+    const [bannerCard, setBannerCard] = useState(cards[0]); 
+
+    const handleCardClick = (card) => {
+        setBannerCard(card);
+    };
 
     return (
         <>
-            <Banner />
-            {categories.map((team) => (
+            <Banner card={bannerCard} />
+            {categories.map((category) => (
                 <Category
-                    datos={team}
-                    key={team.id}
-                    cards={cards.filter(card => card.team === team.name)}
+                    datos={category}
+                    key={category.id}
+                    cards={cards.filter(card => card.team === category.name)}
+                    onCardClick={handleCardClick}
                 />
             ))}
         </>
@@ -23,4 +29,6 @@ function Home() {
 }
 
 export default Home;
+
+
 
