@@ -7,7 +7,8 @@ const Team = (props) => {
   const { primaryColor, name } = props.datos;
 
   const titleStyle = {
-    borderColor: primaryColor
+    borderColor: primaryColor,
+    color: primaryColor
   };
 
   return (
@@ -19,7 +20,7 @@ const Team = (props) => {
             {categories.map((category) => (
               <Category 
                 datos={category} 
-                key={category.id} // Usa el identificador único de `category`
+                key={category.id}
                 primaryColor={primaryColor} 
               />
             ))}
