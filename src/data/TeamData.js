@@ -12,7 +12,7 @@ const teamData = [
   },
   {
     id: 3,
-    name: "Innovación y Gestión",
+    name: "INNOVACIÓN Y GESTIÓN",
     primaryColor: "#FFBA05",
   }
 ];
