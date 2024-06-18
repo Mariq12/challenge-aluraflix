@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Banner from "../../components/banner/Banner";
-import Team from "../../components/team/Team";
-import categoriesData from "../../data/CategoryData";
+import Team from "../../components/category/Category";
+import cardsData from "../../data/CardsData";
 import teamData from "../../data/TeamData";
 
 function Home() {
-    const [categories] = useState(categoriesData);
+    const [cards] = useState(cardsData);
     const [teams] = useState(teamData);
 
     return (
@@ -15,7 +15,7 @@ function Home() {
                 <Team
                     datos={team}
                     key={team.id}
-                    categories={categories.filter(category => category.team === team.name)}
+                    cards={cards.filter(card => card.team === team.name)}
                 />
             ))}
         </>

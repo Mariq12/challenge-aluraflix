@@ -1,5 +1,5 @@
 
-const categoriesData = [
+const cardsData = [
     {
         id: 1,
         title: "Qué Significa Pensar Como Programador",
@@ -82,4 +82,4 @@ const categoriesData = [
     }
 ];
 
-export default categoriesData;
+export default cardsData;

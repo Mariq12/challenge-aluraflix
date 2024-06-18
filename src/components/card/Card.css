@@ -1,0 +1,36 @@
+.card {
+    width: 366px;
+    height: 206.85px;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card:hover {
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card__header {
+
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+}
+
+.card img {
+    aspect-ratio: auto;
+    width: 360px;
+    height: 200.85px; 
+    object-fit:contain; 
+    border-radius: 10px 10px 0 0; 
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .card__header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
