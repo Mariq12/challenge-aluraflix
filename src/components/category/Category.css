@@ -1,0 +1,88 @@
+.category {
+    width: 262px;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.category:hover {
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.category__header {
+    border-radius: 10px;
+}
+.category img {
+    width: 7.5rem;
+    border-radius: 50%;
+    position: relative;
+    bottom: -3.125rem;
+}
+
+.category .info {
+    background: var(--cor-second-text);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 0px 0px 10px 10px;
+    padding-top: 5.625rem;
+    padding-bottom: 2.5rem;
+    min-height: 6.25rem;
+    font-family: 'Montserrat', sans-serif;
+}
+h4 {
+    color: var(--cor-header);
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+h5 {
+    width: 200px;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    color: var(--cor-form-text);
+    padding: 0 1.5rem;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 1.25rem;
+}
+
+.delete {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: var(--cor-second-text);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    
+}
+
+.delete:hover {
+    background: var(--cor-second-text);
+    color: var(--cor-icon-delete);
+    transform: scale(1.1);
+}
+
+.heart-icon {
+    transition: transform 0.3s;
+}
+
+.heart-icon:hover {
+    transform: scale(1.1);
+    color: #ff69b4; 
+}
+
+
+/* *Media Queries */
+@media (max-width: 768px) {
+    .category__header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .category .info {
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    }
+}
