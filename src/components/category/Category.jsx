@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './Category.css';
 
 
 const Category = (props) => {
@@ -10,8 +11,6 @@ const Category = (props) => {
         <Link to={link} className="category">
             <figure className="category__header" style={{ backgroundColor: primaryColor }}>
                 <img src={photo} alt={title} />
-                <figcaption className="info">
-                </figcaption>
             </figure>
         </Link>
     );

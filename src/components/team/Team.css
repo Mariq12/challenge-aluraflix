@@ -4,7 +4,6 @@
     box-sizing: border-box;
     text-align: center;
     font-size: 2rem;
-    position: relative;
 }
 
 .team h3 {
@@ -20,5 +19,6 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 
