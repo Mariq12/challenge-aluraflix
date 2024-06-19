@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
-import { BsInstagram, BsTwitterX, BsLinkedin } from "react-icons/bs";
-import { FaSquareFacebook } from "react-icons/fa6";
+import { BsInstagram, BsLinkedin } from "react-icons/bs";
+import { FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
 
 import './Footer.css';
 import logo from '../../assets/logo.png';
@@ -59,7 +59,7 @@ function Footer() {
                 </li>
                 <li>
                     <a href="https://twitter.com/Flor_Maria_LP">
-                    <BsTwitterX className='icons'/>
+                    <FaXTwitter className='icons'/>
                     </a>
                 </li>
                 <li>
