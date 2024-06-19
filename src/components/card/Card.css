@@ -13,7 +13,7 @@
 }
 
 .card__header {
-    aspect-ratio: auto;
+    aspect-ratio: 16 / 9;
     width: clamp(95%, 18vw, 340px);
     height: clamp(95%, 30vw, 250px); 
     border-radius: 10px;

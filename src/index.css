@@ -3,7 +3,7 @@
   font-family: 'Roboto', sans-serif;
   background-color: var(--color-bg);
   overflow-x: hidden;
-
+  box-sizing: border-box;
 }
 
 :root {

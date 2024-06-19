@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from "./Banner.module.css";
 import categoryData from "../../data/CategoryData";
-import banner from "../../assets/banner.jpg";
+import banner from "../../assets/banner1.png";
 
 const categoryLookup = categoryData.reduce((acc, category) => {
     acc[category.name] = category;

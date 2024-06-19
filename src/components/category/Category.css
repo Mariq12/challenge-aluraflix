@@ -17,8 +17,29 @@
 
 .card__container {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: auto;
     gap: 1rem;
+    padding: 1rem;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    
 }
 
+.card__container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.card__container::-webkit-scrollbar-thumb {
+    background-color: var(--color-blue-light);
+    border-radius: 4px;
+}
+
+.card__container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 375px;
+}
