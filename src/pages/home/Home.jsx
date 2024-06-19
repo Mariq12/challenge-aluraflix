@@ -5,7 +5,7 @@ import cardsData from "../../data/CardsData";
 import categoryData from "../../data/CategoryData";
 
 function Home() {
-    const [cards] = useState(cardsData);
+    const [cards, setCards] = useState(cardsData);
     const [categories] = useState(categoryData);
     const [bannerCard, setBannerCard] = useState(cards[0]); 
 
@@ -17,15 +17,26 @@ function Home() {
         }
     };
 
+    const handleCardDelete = (cardId) => {
+        const updatedCards = cards.filter(card => card.id !== cardId);
+        setCards(updatedCards);
+        if (bannerCard.id === cardId && updatedCards.length > 0) {
+            setBannerCard(updatedCards[0]);
+        } else if (updatedCards.length === 0) {
+            setBannerCard(null);
+        }
+    };
+
     return (
         <>
-            <Banner id="banner" card={bannerCard} />
+            {bannerCard && <Banner id="banner" card={bannerCard} />}
             {categories.map((category) => (
                 <Category
                     datos={category}
                     key={category.id}
                     cards={cards.filter(card => card.team === category.name)}
                     onCardClick={handleCardClick}
+                    onCardDelete={handleCardDelete}
                 />
             ))}
         </>
@@ -33,7 +44,6 @@ function Home() {
 }
 
 export default Home;
-
 
 
 
