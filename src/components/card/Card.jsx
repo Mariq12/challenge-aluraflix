@@ -16,8 +16,8 @@ const Card = ({ datos, primaryColor, onClick, onDelete }) => {
     return (
         <div className="card" style={{ cursor: 'pointer' }}>
             <figure className="card__header" style={{ backgroundColor: primaryColor }}>
-                <img src={photo} alt={title} onClick={handleClick} />
-                <figcaption className="card__icons">
+                <img src={photo} alt={title} onClick={handleClick} className="card__image" />
+                <figcaption className="card__icons" >
                     <div className="card__icon-wrapper" onClick={(e) => { e.stopPropagation(); onDelete(); }}>
                         <RiDeleteBin2Line className="card__icon" />
                         <span className="card__icon-text">Eliminar</span>
