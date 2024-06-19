@@ -24,7 +24,11 @@ function Banner({ card }) {
                 <h2 className={styles.title}>{card.title}</h2>
                 <p className={styles.subtitle}>{card.description}</p>
             </section>
-            <section className={styles.container} style={{ borderColor: primaryColor, borderStyle: 'solid', borderWidth: '2px' }}>
+            <section className={styles.container} style={{ 
+                borderColor: primaryColor, 
+                borderStyle: 'solid', 
+                borderWidth: '4px' 
+                }}>
                 <iframe
                     src={card.link}
                     title={card.title}
