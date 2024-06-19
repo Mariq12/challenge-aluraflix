@@ -37,6 +37,19 @@ a{ text-decoration: none;}
 @media (max-width: 600px) {
     .navLinks {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 5px;
+        background-color: var(--color-dark-gray-border);
+        padding: 1rem;
+        border-radius: 5px;
+        z-index: 10;
+    }
+
+    .navLinks.showMenu {
+        display: flex;
+        gap: 0.5rem;
     }
 
     .menuIcon {
@@ -44,5 +57,6 @@ a{ text-decoration: none;}
         font-size: 1.5rem;
         color: var(--color-white);
         background-color: var(--color-dark-gray-border);
+        cursor: pointer;
     }
 }
