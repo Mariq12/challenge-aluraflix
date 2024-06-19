@@ -30,6 +30,13 @@
     .card__header {
         display: flex;
         justify-content: center;
+    }
+}
+@media (max-width: 360px) {
+    .card__header {
+        display: flex;
+        justify-content: center;
         flex-direction: column;
+        width: 95%;
     }
 }
