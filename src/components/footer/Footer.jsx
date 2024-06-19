@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
-import { BsFacebook, BsInstagram, BsTwitterX, BsLinkedin } from "react-icons/bs";
+import { BsInstagram, BsTwitterX, BsLinkedin } from "react-icons/bs";
+import { FaSquareFacebook } from "react-icons/fa6";
+
 import './Footer.css';
 import logo from '../../assets/logo.png';
 
@@ -20,8 +22,10 @@ const IconContainer = styled.ul`
     padding: 0;
     list-style: none;
     li {
+        background-color: var(--color-black);
         display: inline-block;
-        margin-right: 32px;
+        margin-right: 1.5rem;
+        padding: 0.5rem;
     }
 `;
 
@@ -30,7 +34,7 @@ const LogoContainer = styled.div`
     justify-content: center;
     align-items: center;
     img {
-        width: 10.528; 
+        width: clamp(30%, 100%, 10.528rem); 
         height: auto;
         background-color: var(--color-black);
     }
@@ -46,11 +50,11 @@ const FooterText = styled.p`
 
 function Footer() {
     return (
-        <StyledFooter>
+        <StyledFooter className='container'>
             <IconContainer>
                 <li>
                     <a href="https://www.facebook.com/profile.php?id=100084487023873">
-                    <BsFacebook className='icons'/>
+                    <FaSquareFacebook className='icons'/>
                     </a>
                 </li>
                 <li>
@@ -69,10 +73,10 @@ function Footer() {
                     </a>
                 </li>
             </IconContainer>
-            <LogoContainer>
+            <LogoContainer className='logo'>
                 <img src={logo} alt="Logo" />
             </LogoContainer>
-            <FooterText>
+            <FooterText className='text'>
                 Diseñado por Alura.<br />
                 Desarrollado por Flor María Labanda P.<br />
                 18 de Junio de 20024

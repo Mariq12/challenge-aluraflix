@@ -1,4 +1,36 @@
 .icons {
     color: #fff;
     font-size: 20px;
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    transition: all 0.2s ease;
+}
+
+.icons:hover {
+    transform: perspective(1000px) rotateY(180deg) rotateX(180deg);
+    background-color: var(--color-brillo);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 3px 1px;
+    }
+    .icons {
+        font-size: 18px;
+        margin-right: 0;
+    }
+    .logo {
+        width: 30%;
+        background-color: var(--color-black);
+        margin-right: 2rem;
+    }   
+    .text {
+        color: #fff;
+        font-size: 12px !important;
+        padding: 1.5rem 0;
+    }
 }
