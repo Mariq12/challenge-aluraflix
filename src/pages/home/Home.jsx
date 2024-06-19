@@ -11,11 +11,15 @@ function Home() {
 
     const handleCardClick = (card) => {
         setBannerCard(card);
+        const bannerElement = document.getElementById('banner');
+        if (bannerElement) {
+            bannerElement.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
         <>
-            <Banner card={bannerCard} />
+            <Banner id="banner" card={bannerCard} />
             {categories.map((category) => (
                 <Category
                     datos={category}
@@ -29,6 +33,7 @@ function Home() {
 }
 
 export default Home;
+
 
 
 

@@ -16,7 +16,7 @@ function Banner({ card }) {
     };
 
     return (
-        <main className={styles.layer} style={{ backgroundImage: `url(${card.photo})` }}>
+        <main id="banner" className={styles.layer} style={{ backgroundImage: `url(${card.photo})` }}>
             <div className={styles.gradient}></div>
             <section className={styles.content}>
                 <h1 className={styles.name} style={titleStyle}>{name}</h1>
