@@ -18,11 +18,11 @@ const Card = ({ datos, primaryColor, onClick, onDelete }) => {
             <figure className="card__header" style={{ backgroundColor: primaryColor }}>
                 <img src={photo} alt={title} onClick={handleClick} className="card__image" />
                 <figcaption className="card__icons" >
-                    <div className="card__icon-wrapper" onClick={(e) => { e.stopPropagation(); onDelete(); }}>
+                    <div className="card__icon-wrapper card-icon-delete" onClick={(e) => { e.stopPropagation(); onDelete(); }}>
                         <RiDeleteBin2Line className="card__icon" />
                         <span className="card__icon-text">Eliminar</span>
                     </div>
-                    <div className="card__icon-wrapper" onClick={(e) => e.stopPropagation()}>
+                    <div className="card__icon-wrapper card-icon-edit" onClick={(e) => e.stopPropagation()}>
                         <RiEdit2Line className="card__icon" />
                         <span className="card__icon-text">Editar</span>
                     </div>

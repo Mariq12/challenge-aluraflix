@@ -21,7 +21,6 @@
     flex-direction: column;
     padding: 4px;
     box-shadow: inset 4px 6px 8px rgba(0, 0, 0, 0.4);
-    background-color: rgb(21, 255, 0);
 }
 
 .card__img {
@@ -52,16 +51,36 @@
 .card__icon-wrapper {
     display: flex;
     align-items: center;
-    color: var(--color-white);
+    background-color: transparent;
 }
-
+.card__icon-wrapper:hover {
+    color: var(--color-blue);
+}
 .card__icon {
     font-size: 1.5rem;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .card__icon-text {
     margin-left: 5px;
+    background-color: transparent;
+}
+
+.card-icon-delete {
+    color: var(--color-white);
+}
+
+.card-icon-delete:hover {
+    color: var(--color-error);
+}
+
+.card-icon-edit {
+    color: var(--color-white);
+}
+
+.card-icon-edit:hover {
+    color: var(--color-brillo);
 }
 
 /* *Media Queries */
