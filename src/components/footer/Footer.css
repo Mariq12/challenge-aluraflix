@@ -31,5 +31,6 @@
     .text {
         color: #fff;
         font-size: 12px !important;
+        margin-bottom: 6rem !important;
     }
 }
