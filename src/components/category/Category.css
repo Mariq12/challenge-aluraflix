@@ -42,3 +42,15 @@
     flex: 0 0 auto;
     width: 375px;
 }
+
+/* *Media Queries */
+@media (max-width: 768px) {
+    .card__container {
+        margin: 0 1rem;
+    }
+}
+@media (max-width: 360px) {
+    .card__container {
+        margin: 0 0.5rem;
+    }
+}
