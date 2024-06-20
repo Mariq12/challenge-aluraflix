@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 import './OptionList.css';
 
-const OptionsList = ({ value, onChange, options }) => {
+const OptionList = ({ value, onChange, options }) => {
     return (
-        <div className="global-field" id='options-list'>
+        <div className="option-list">
             <label>Categoría:</label>
-            <select value={value} onChange={onChange}>
+            <select
+                className="modal-form-input" // Aquí se aplica la clase para el estilo
+                value={value}
+                onChange={onChange}
+            >
                 <option value="" disabled defaultValue="" hidden>Seleccionar categoría</option>
                 {options.map((option) => (
                     <option key={option.id} value={option.name}>
@@ -17,7 +21,7 @@ const OptionsList = ({ value, onChange, options }) => {
     );
 };
 
-OptionsList.propTypes = {
+OptionList.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(
@@ -29,4 +33,4 @@ OptionsList.propTypes = {
     ).isRequired
 };
 
-export default OptionsList;
+export default OptionList;
