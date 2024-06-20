@@ -1,44 +1,58 @@
+import  { useState, useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import './Modal.css';
-import { useState, useEffect, useRef } from 'react';
 import { IoMdCloseCircleOutline, IoMdArrowDropdown } from "react-icons/io";
+import { validateForm } from '../../utils/Validation';
+import './Modal.css';
 
 const Modal = ({ card, isOpen, onClose, onSave }) => {
-    const [formData, setFormData] = useState({ ...card });
+    const initialFormData = useMemo(() => ({
+        title: '',
+        team: '',
+        photo: '',
+        link: '',
+        description: '',
+    }), []);
+
+    const [formData, setFormData] = useState(initialFormData);
+    const [errors, setErrors] = useState({});
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const descriptionRef = useRef(null);
 
     useEffect(() => {
-        setFormData({ ...card });
-        if (descriptionRef.current) {
-            adjustTextareaHeight(descriptionRef.current);
+        if (isOpen && card) {
+            setFormData({ ...card });
+        } else {
+            setFormData(initialFormData);
         }
-    }, [card]);
+        setErrors({});
+    }, [card, isOpen, initialFormData]);
+
+    useEffect(() => {
+        const formErrors = validateForm(formData);
+        setErrors(formErrors);
+        setIsButtonDisabled(Object.keys(formErrors).length > 0);
+    }, [formData]);
 
     if (!isOpen) return null;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-
-        if (e.target.name === 'description' && descriptionRef.current) {
-            adjustTextareaHeight(descriptionRef.current);
-        }
     };
 
-    const handleSave = () => {
-        onSave(formData);
+    const handleSave = (e) => {
+        e.preventDefault();
+        const formErrors = validateForm(formData);
+        setErrors(formErrors);
+        if (Object.keys(formErrors).length === 0) {
+            onSave(formData);
+        }
     };
 
     const handleClear = () => {
-        setFormData({ ...card });
-        if (descriptionRef.current) {
-            adjustTextareaHeight(descriptionRef.current);
-        }
-    };
-
-    const adjustTextareaHeight = (textarea) => {
-        textarea.style.height = 'auto';
-        textarea.style.height = textarea.scrollHeight + 'px';
+        setFormData(initialFormData);
+        setErrors({});
+        setIsButtonDisabled(true);
     };
 
     return (
@@ -46,78 +60,95 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
             <div className="modal-content">
                 <IoMdCloseCircleOutline className="close-icon" onClick={onClose} />
                 <h1>EDITAR CARD:</h1>
-                <form className='modal-form'>
+                <form className='modal-form' onSubmit={handleSave}>
                     <label>Título:
                         <input
-                            className='modal-form-input' 
-                            type="text" name="title" 
-                            value={formData.title} 
+                            className={`modal-form-input ${errors.title ? 'error' : ''}`}
+                            type="text"
+                            name="title"
+                            value={formData.title}
                             onChange={handleChange}
                             maxLength="200"
+                            required
                         />
+                        {errors.title && <span className="error-message">{errors.title}</span>}
                     </label>
                     <label className='modal-form-category'>Categoría:
-                    <div className="input-with-icon">
-                    <input
-                        className='modal-form-input'
-                        type="text"
-                        name="team"
-                        value={formData.team}
-                        onChange={handleChange}
-                        maxLength="50"
-                    />
-                    <IoMdArrowDropdown className="dropdown-icon" />
-                </div>
+                        <div className="input-with-icon">
+                            <input
+                                className={`modal-form-input ${errors.team ? 'error' : ''}`}
+                                type="text"
+                                name="team"
+                                value={formData.team}
+                                onChange={handleChange}
+                                maxLength="50"
+                                required
+                            />
+                            <IoMdArrowDropdown className="dropdown-icon" />
+                        </div>
+                        {errors.team && <span className="error-message">{errors.team}</span>}
                     </label>
                     <label>Imagen:
-                        <input 
-                            className='modal-form-input' 
-                            type="text" name="photo" 
-                            value={formData.photo} 
+                        <input
+                            className={`modal-form-input ${errors.photo ? 'error' : ''}`}
+                            type="text"
+                            name="photo"
+                            value={formData.photo}
                             onChange={handleChange}
                             maxLength="200"
+                            required
                         />
+                        {errors.photo && <span className="error-message">{errors.photo}</span>}
                     </label>
                     <label>Video:
-                        <input 
-                            className='modal-form-input' 
-                            type="text" name="link" 
-                            value={formData.link} 
+                        <input
+                            className={`modal-form-input ${errors.link ? 'error' : ''}`}
+                            type="text"
+                            name="link"
+                            value={formData.link}
                             onChange={handleChange}
                             maxLength="200"
+                            required
                         />
+                        {errors.link && <span className="error-message">{errors.link}</span>}
                     </label>
                     <label>Descripción:
                         <textarea
-                            className='modal-form-input modal-form-textarea'
+                            className={`modal-form-input modal-form-textarea ${errors.description ? 'error' : ''}`}
                             name="description"
                             value={formData.description}
                             onChange={handleChange}
                             ref={descriptionRef}
                             rows="1"
                             maxLength="500"
+                            required
                         />
+                        {errors.description && <span className="error-message">{errors.description}</span>}
                     </label>
-                </form>
-                <div className="modal-buttons">
-                    <button 
-                        className='modal-button-save' 
-                        onClick={handleSave}>
+                    <div className="modal-buttons">
+                        <button
+                            type="submit"
+                            className={`modal-button-save ${isButtonDisabled ? 'disabled' : ''}`}
+                            disabled={isButtonDisabled}
+                        >
                             GUARDAR
-                    </button>
-                    <button 
-                        className='modal-button-delete' 
-                        onClick={handleClear}>
+                        </button>
+                        <button
+                            type="button"
+                            className='modal-button-delete'
+                            onClick={handleClear}
+                        >
                             LIMPIAR
-                    </button>
-                </div>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     );
 };
 
 Modal.propTypes = {
-    card: PropTypes.object.isRequired,
+    card: PropTypes.object,
     isOpen: PropTypes.bool.isRequired,
     onClose: PropTypes.func.isRequired,
     onSave: PropTypes.func.isRequired,

@@ -158,3 +158,18 @@
 .modal-button-delete:hover {
     filter: brightness(1.3);
 }
+
+.modal-form-input.error {
+    border-color: red !important;
+}
+
+.error-message {
+    color: red !important;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.modal-button-save.disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
