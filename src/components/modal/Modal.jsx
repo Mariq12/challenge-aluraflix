@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
 import './Modal.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { IoMdCloseCircleOutline, IoMdArrowDropdown } from "react-icons/io";
 
 const Modal = ({ card, isOpen, onClose, onSave }) => {
     const [formData, setFormData] = useState({ ...card });
+    const descriptionRef = useRef(null);
 
     useEffect(() => {
         setFormData({ ...card });
+        if (descriptionRef.current) {
+            adjustTextareaHeight(descriptionRef.current);
+        }
     }, [card]);
 
     if (!isOpen) return null;
@@ -15,6 +19,10 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+
+        if (e.target.name === 'description' && descriptionRef.current) {
+            adjustTextareaHeight(descriptionRef.current);
+        }
     };
 
     const handleSave = () => {
@@ -23,6 +31,14 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
 
     const handleClear = () => {
         setFormData({ ...card });
+        if (descriptionRef.current) {
+            adjustTextareaHeight(descriptionRef.current);
+        }
+    };
+
+    const adjustTextareaHeight = (textarea) => {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
     };
 
     return (
@@ -32,25 +48,65 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                 <h1>EDITAR CARD:</h1>
                 <form className='modal-form'>
                     <label>Título:
-                        <input className='modal-form-input' type="text" name="title" value={formData.title} onChange={handleChange} />
+                        <input
+                            className='modal-form-input' 
+                            type="text" name="title" 
+                            value={formData.title} 
+                            onChange={handleChange}
+                            maxLength="200"
+                        />
                     </label>
                     <label className='modal-form-category'>Categoría:
-                        <input className='modal-form-input' type="text" name="team" value={formData.team} onChange={handleChange} />
+                        <input 
+                            className='modal-form-input' 
+                            type="text" name="team" 
+                            value={formData.team} 
+                            onChange={handleChange}
+                            maxLength="50"
+                            />
                         <IoMdArrowDropdown />
                     </label>
                     <label>Imagen:
-                        <input className='modal-form-input' type="text" name="photo" value={formData.photo} onChange={handleChange} />
+                        <input 
+                            className='modal-form-input' 
+                            type="text" name="photo" 
+                            value={formData.photo} 
+                            onChange={handleChange}
+                            maxLength="200"
+                        />
                     </label>
                     <label>Video:
-                        <input className='modal-form-input' type="text" name="link" value={formData.link} onChange={handleChange} />
+                        <input 
+                            className='modal-form-input' 
+                            type="text" name="link" 
+                            value={formData.link} 
+                            onChange={handleChange}
+                            maxLength="200"
+                        />
                     </label>
                     <label>Descripción:
-                        <textarea className='modal-form-input' name="description" value={formData.description} onChange={handleChange} />
+                        <textarea
+                            className='modal-form-input'
+                            name="description"
+                            value={formData.description}
+                            onChange={handleChange}
+                            ref={descriptionRef}
+                            rows="1"
+                            maxLength="500"
+                        />
                     </label>
                 </form>
                 <div className="modal-buttons">
-                    <button className='modal-button-save' onClick={handleSave}>Guardar</button>
-                    <button className='modal-button-delete' onClick={handleClear}>Limpiar</button>
+                    <button 
+                        className='modal-button-save' 
+                        onClick={handleSave}>
+                            GUARDAR
+                    </button>
+                    <button 
+                        className='modal-button-delete' 
+                        onClick={handleClear}>
+                            LIMPIAR
+                    </button>
                 </div>
             </div>
         </div>
