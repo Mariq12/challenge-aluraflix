@@ -3,7 +3,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 2.4rem 2.5rem;
-    background-color: var(--color-dark-gray-border);
+    background-color: var(--color-black);
+    border-bottom: 3px solid var(--color-blue);
 }
 a{ text-decoration: none;}
 
@@ -11,13 +12,14 @@ a{ text-decoration: none;}
     height: auto;
     display: flex;
     align-items: center;
+    background-color: var(--color-black);
 }
 
 .nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--color-dark-gray-border);
+    background-color: var(--color-black);
 }
 
 .header img {
@@ -27,7 +29,7 @@ a{ text-decoration: none;}
 .navLinks {
     display: flex;
     justify-content: space-around;
-    background-color: var(--color-dark-gray-border);
+    background-color: var(--color-black);
 }
 
 .menuIcon {
