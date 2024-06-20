@@ -57,14 +57,17 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                         />
                     </label>
                     <label className='modal-form-category'>Categoría:
-                        <input 
-                            className='modal-form-input' 
-                            type="text" name="team" 
-                            value={formData.team} 
-                            onChange={handleChange}
-                            maxLength="50"
-                            />
-                        <IoMdArrowDropdown />
+                    <div className="input-with-icon">
+                    <input
+                        className='modal-form-input'
+                        type="text"
+                        name="team"
+                        value={formData.team}
+                        onChange={handleChange}
+                        maxLength="50"
+                    />
+                    <IoMdArrowDropdown className="dropdown-icon" />
+                </div>
                     </label>
                     <label>Imagen:
                         <input 

@@ -93,6 +93,27 @@
     outline: none;
 }
 
+.input-with-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: var(--color-bg-edit);
+}
+
+.input-with-icon .modal-form-input {
+    padding-right: 2.5rem;
+}
+
+.input-with-icon .dropdown-icon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--color-light-gray);
+    background: var(--color-bg-edit);
+}
+
 .modal-form-textarea {
     height: 7rem !important;
 }
