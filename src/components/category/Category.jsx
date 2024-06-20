@@ -3,7 +3,7 @@ import './Category.css';
 import Card from '../card/Card';
 
 const Category = (props) => {
-  const { cards, onCardClick, onCardDelete } = props;
+  const { cards, onCardClick, onCardDelete, onCardEdit } = props;
   const { primaryColor, name } = props.datos;
 
   const titleStyle = {
@@ -24,6 +24,7 @@ const Category = (props) => {
                 primaryColor={primaryColor}
                 onClick={() => onCardClick(card)}
                 onDelete={() => onCardDelete(card.id)}
+                onEdit={onCardEdit}
               />
             ))}
           </div>
@@ -49,7 +50,7 @@ Category.propTypes = {
   ).isRequired,
   onCardClick: PropTypes.func.isRequired,
   onCardDelete: PropTypes.func.isRequired,
+  onCardEdit: PropTypes.func.isRequired,
 };
 
 export default Category;
-

@@ -1,0 +1,109 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto; 
+}
+
+.modal-content {
+    background: var(--color-bg-edit);
+    border: 3px solid var(--color-frontend);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 1074px;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    align-items: center;
+    margin-top: auto;
+}
+
+.close-icon {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    font-size: 3.25rem;
+    color: var(--color-white);
+    background: var(--color-bg-edit);
+}
+
+.modal-content h1 {
+    font-size: 3.75rem;
+    margin-bottom: 20px;
+    color: var(--color-blue-light);
+    background: var(--color-bg-edit);
+    overflow: hidden;
+    width: 100%;
+    max-width: 573px;
+    align-self: center; 
+    text-align: left;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    background: var(--color-bg-edit);
+    align-self: center; 
+    text-align: left;
+    max-width: 573px;
+    width: 100%;
+}
+
+.modal-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: var(--color-white);
+    background: var(--color-bg-edit);
+}
+
+.modal-form-input {
+    background: var(--color-bg-edit);
+    color: var(--color-white);
+    margin-top: 0.5rem;
+    border: 3px solid var(--color-blue-light);
+    width: 100%;
+    height: 3.875rem;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    resize: none;
+    overflow: visible;
+    margin-bottom: 1rem;
+}
+
+.modal-form textarea.modal-form-input {
+    height: auto; /* Permite que el textarea crezca en altura si es necesario */
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    background: var(--color-bg-edit);
+    width: 100%;
+    max-width: 573px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: var(--color-bg-edit);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+}
