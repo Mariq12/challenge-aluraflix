@@ -1,16 +1,9 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.png";
 import HeaderLink from "../headerLink/HeaderLink";
-import { IoMenu } from "react-icons/io5";
 
 function Header() {
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
 
     return (
         <header className={styles.header}>
@@ -20,8 +13,7 @@ function Header() {
                 </section>
             </Link>
             <nav className={styles.nav}>
-            <IoMenu className={styles.menuIcon} onClick={toggleMenu} />
-                <div className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
+                <div className={styles.navLinks}>
                     <HeaderLink url="./">INICIO</HeaderLink>
                     <HeaderLink url="./newVideo">NUEVO VIDEO</HeaderLink>
                 </div>
