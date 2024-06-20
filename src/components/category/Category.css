@@ -17,13 +17,12 @@
 
 .card__container {
     display: flex;
-    justify-content: center;
     overflow-x: auto;
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-    
+    margin: 0 2rem;
 }
 
 .card__container::-webkit-scrollbar {
