@@ -86,7 +86,7 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                     </label>
                     <label>Descripción:
                         <textarea
-                            className='modal-form-input'
+                            className='modal-form-input modal-form-textarea'
                             name="description"
                             value={formData.description}
                             onChange={handleChange}
