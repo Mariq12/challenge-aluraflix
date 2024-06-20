@@ -1,8 +1,10 @@
-import  { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { IoMdCloseCircleOutline, IoMdArrowDropdown } from "react-icons/io";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 import { validateForm } from '../../utils/Validation';
 import './Modal.css';
+import OptionList from '../optionList/OptionList';
+import categoryData from '../../data/CategoryData';
 
 const Modal = ({ card, isOpen, onClose, onSave }) => {
     const initialFormData = useMemo(() => ({
@@ -73,21 +75,14 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                         />
                         {errors.title && <span className="error-message">{errors.title}</span>}
                     </label>
-                    <label className='modal-form-category'>Categoría:
-                        <div className="input-with-icon">
-                            <input
-                                className={`modal-form-input ${errors.team ? 'error' : ''}`}
-                                type="text"
-                                name="team"
-                                value={formData.team}
-                                onChange={handleChange}
-                                maxLength="50"
-                                required
-                            />
-                            <IoMdArrowDropdown className="dropdown-icon" />
-                        </div>
-                        {errors.team && <span className="error-message">{errors.team}</span>}
-                    </label>
+                    <OptionList
+                        className="modal-form-option-list"
+                        label="Equipo:"
+                        value={formData.team}
+                        onChange={(e) => handleChange({ target: { name: 'team', value: e.target.value } })}
+                        options={categoryData}
+                    />
+                    {errors.team && <span className="error-message">{errors.team}</span>}
                     <label>Imagen:
                         <input
                             className={`modal-form-input ${errors.photo ? 'error' : ''}`}

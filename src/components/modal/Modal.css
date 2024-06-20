@@ -114,9 +114,12 @@
     background: var(--color-bg-edit);
 }
 
+.modal-form-option-list {
+    background: var(--color-bg-edit) !important;
+}
 .modal-form-textarea {
-    min-height: 7rem; /* Establece una altura mínima */
-    height: auto; /* Deja que el textarea se ajuste automáticamente */
+    min-height: 7rem; 
+    height: auto; 
 }
 
 .modal-buttons {
