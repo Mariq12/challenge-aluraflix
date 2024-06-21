@@ -54,7 +54,6 @@
 .modal-form {
     display: flex;
     flex-direction: column;
-    width: 100%;
     gap: 1.5rem;
     background: var(--color-bg-edit);
     align-self: center; 

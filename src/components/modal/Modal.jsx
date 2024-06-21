@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { validateForm } from '../../utils/Validation';
 import './Modal.css';
-import OptionList from '../optionList/OptionList';
 import categoryData from '../../data/CategoryData';
+import OptionList from '../optionList/OptionList';
 
 const Modal = ({ card, isOpen, onClose, onSave }) => {
     const initialFormData = useMemo(() => ({
@@ -76,8 +76,6 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                         {errors.title && <span className="error-message">{errors.title}</span>}
                     </label>
                     <OptionList
-                        className="modal-form-option-list"
-                        label="Equipo:"
                         value={formData.team}
                         onChange={(e) => handleChange({ target: { name: 'team', value: e.target.value } })}
                         options={categoryData}
