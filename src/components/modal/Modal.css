@@ -84,7 +84,7 @@
     margin-bottom: 1rem;
     outline: none;
     transition: border-color 0.3s ease;
-    min-height: 3.875rem; /* Establece una altura mínima */
+    min-height: 3.875rem;
 }
 
 .modal-form-input:focus {
