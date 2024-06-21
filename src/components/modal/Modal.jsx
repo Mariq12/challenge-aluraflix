@@ -80,7 +80,7 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                         {errors.title && <span className="error-message">{errors.title}</span>}
                     </label>
                     <OptionList
-                        className="modal-form-option"
+                        clase="selected-value"
                         value={formData.team}
                         onChange={(e) => handleChange({ target: { name: 'team', value: e.target.value } })}
                         options={categoryData}

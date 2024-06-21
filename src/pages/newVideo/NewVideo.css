@@ -78,11 +78,12 @@
     width: 100%;
     padding: 0.8rem;
     font-size: 1.25rem;
-    border: 1px solid var(--color-light-gray);
+    border: 1px solid var(--color-light-gray) !important;
     border-radius: 0.5rem;
     background-color: transparent;
     height: 3.875rem;
     margin-bottom: 0.5rem;
+    color: var(--color-light-gray);
 }
 
 .new-video__form-input::placeholder {

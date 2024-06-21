@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { IoMdArrowDropdown } from "react-icons/io";
 import './OptionList.css';
 
-const OptionList = ({ value, onChange, options }) => {
+const OptionList = ({ value, onChange, options, clase }) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -33,7 +33,7 @@ const OptionList = ({ value, onChange, options }) => {
         <div className="option-list" ref={dropdownRef}>
             <label>Categoría:</label>
             <div className="input-with-icon" onClick={handleToggleDropdown}>
-                <div className="selected-value new-video__form-input">
+                <div className={`${clase}`}>
                     {value || "Seleccionar categoría"}
                 </div>
                 <IoMdArrowDropdown className="dropdown-icon dropdown-icon-video" />
@@ -58,6 +58,7 @@ const OptionList = ({ value, onChange, options }) => {
 OptionList.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    clase: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,

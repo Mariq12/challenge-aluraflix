@@ -113,9 +113,30 @@
     background: var(--color-bg-edit);
 }
 
-.modal-form-option-list {
+.modal-form-option{
     background: var(--color-bg-edit) !important;
+    border: 3px solid var(--color-blue-light) !important;
+
 }
+
+.selected-value {
+    background: var(--color-bg-edit);
+    color: var(--color-light-gray);
+    margin-top: 1rem;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    resize: none;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    min-height: 3.875rem;
+    font-size: 1.25rem;
+    border: 3px solid var(--color-blue-light) !important;
+}
+
 .modal-form-textarea {
     min-height: 7rem; 
     height: auto; 
