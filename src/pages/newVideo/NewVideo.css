@@ -80,6 +80,11 @@
     color: var(--color-light-gray);
 }
 
+.new-video__form-input:focus {
+    border-color: var(--color-frontend);
+    outline: none;
+}
+
 .new-video__form-textarea {
     width: 100%;
     padding: 0.8rem;
