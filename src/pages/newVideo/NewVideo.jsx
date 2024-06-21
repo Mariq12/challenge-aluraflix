@@ -111,8 +111,7 @@ function NewVideo() {
                     </div>
                     <div className="form-section__right">
                         <OptionList
-                            clase="new-video__form-input"
-                            className={`new-video__form-label ${errors.team && touchedFields.team ? 'error-label' : ''}`}
+                            clase={`new-video__form-input new-video__form-option ${errors.team && touchedFields.team ? 'error-label' : ''}`}
                             value={formData.team}
                             onChange={(e) => {
                                 handleChange({ target: { name: 'team', value: e.target.value } });

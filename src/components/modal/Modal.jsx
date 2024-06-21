@@ -80,7 +80,8 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                         {errors.title && <span className="error-message">{errors.title}</span>}
                     </label>
                     <OptionList
-                        clase={`modal-form-input ${errors.photo ? 'error' : ''}`}
+                        clase={`modal-form-input modal-form-option ${errors.photo ? 'error' : ''}`}
+                        clase2='dropdown-option'
                         value={formData.team}
                         onChange={(e) => handleChange({ target: { name: 'team', value: e.target.value } })}
                         options={categoryData}

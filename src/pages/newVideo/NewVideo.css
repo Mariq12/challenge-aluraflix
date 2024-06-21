@@ -81,13 +81,28 @@
     border: 1px solid var(--color-light-gray) !important;
     border-radius: 0.5rem;
     background-color: transparent;
-    height: 3.875rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    min-height: 3.875rem;
+    display: flex;
+    align-items: center;
     color: var(--color-light-gray);
+    box-sizing: border-box;
+    resize: none;
+    overflow: hidden;
 }
 
 .new-video__form-input::placeholder {
     color: var(--color-light-gray);
+}
+
+.new-video__form-option {
+    margin: 0;
+}
+
+.input-with-icon .dropdown-icon {
+    overflow-x: hidden;
 }
 
 .new-video__form-input.error::placeholder {

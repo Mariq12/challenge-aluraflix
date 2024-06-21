@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { IoMdArrowDropdown } from "react-icons/io";
 import './OptionList.css';
 
-const OptionList = ({ value, onChange, options, clase }) => {
+const OptionList = ({ value, onChange, options, clase, clase2 }) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -43,7 +43,7 @@ const OptionList = ({ value, onChange, options, clase }) => {
                     {options.map((option) => (
                         <li
                             key={option.id}
-                            className="dropdown-option"
+                            className={`${clase2}`}
                             onClick={() => handleSelectOption(option.name)}
                         >
                             {option.name}
@@ -59,6 +59,7 @@ OptionList.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     clase: PropTypes.string.isRequired,
+    clase2: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
