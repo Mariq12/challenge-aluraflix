@@ -48,14 +48,12 @@ export const validateForm = async (formData) => {
 
 // Validate photo URL
 const isPhotoURLValid = (url) => {
-    const photoUrlPattern = /^https:\/\/i\.ytimg\.com\/vi\/[a-zA-Z0-9_-]+\/(maxresdefault|sddefault)\.(jpg|jpeg|png)$/;
-
+    const photoUrlPattern = /\.(jpg|jpeg|png|gif)$/i;
     return photoUrlPattern.test(url);
 };
 
 // Validate video URL
 const isVideoURLValid = (url) => {
     const videoUrlPattern = /^https:\/\/www\.youtube\.com\/embed\/[a-zA-Z0-9_-]+\?si=[a-zA-Z0-9_-]+$/;
-
     return videoUrlPattern.test(url);
 };

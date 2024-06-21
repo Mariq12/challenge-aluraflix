@@ -26,10 +26,9 @@ function NewVideo() {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const descriptionRef = useRef(null);
     const navigateTo = useNavigate();
-    
+
     useEffect(() => {
         validateFormAndSetErrors();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formData]);
 
     const validateFormAndSetErrors = async () => {
@@ -79,13 +78,13 @@ function NewVideo() {
     };
 
     return (
-        <main className="container__new-video">
-            <section className="new-video__header">
+        <div className="container__new-video">
+            <header className="new-video__header">
                 <h1 className="new-video__title">NUEVO VIDEO</h1>
                 <p className="new-video__description">
                     COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA DE VIDEO
                 </p>
-            </section>
+            </header>
             <form className="new-video__form" onSubmit={handleSave}>
                 <div className="form-section">
                     <div className="form-section__left">
@@ -112,6 +111,7 @@ function NewVideo() {
                     </div>
                     <div className="form-section__right">
                         <OptionList
+                            className="new-video__form-label new-video__form-select"
                             value={formData.team}
                             onChange={(e) => {
                                 handleChange({ target: { name: 'team', value: e.target.value } });
@@ -195,7 +195,7 @@ function NewVideo() {
                     </button>
                 </div>
             </form>
-        </main>
+        </div>
     );
 }
 

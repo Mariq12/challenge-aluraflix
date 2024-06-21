@@ -33,10 +33,10 @@ const OptionList = ({ value, onChange, options }) => {
         <div className="option-list" ref={dropdownRef}>
             <label>Categoría:</label>
             <div className="input-with-icon" onClick={handleToggleDropdown}>
-                <div className="selected-value modal-form-input">
+                <div className="selected-value new-video__form-input">
                     {value || "Seleccionar categoría"}
                 </div>
-                <IoMdArrowDropdown className="dropdown-icon" />
+                <IoMdArrowDropdown className="dropdown-icon dropdown-icon-video" />
             </div>
             {isOpen && (
                 <ul className="dropdown-options">
