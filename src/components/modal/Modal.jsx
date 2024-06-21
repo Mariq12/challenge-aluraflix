@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { validateForm } from '../../utils/Validation';
+
 import './Modal.css';
 import categoryData from '../../data/CategoryData';
 import OptionList from '../optionList/OptionList';
+import { validateForm } from '../../utils/ValidateForm';
 
 const Modal = ({ card, isOpen, onClose, onSave }) => {
     const initialFormData = useMemo(() => ({
@@ -30,21 +31,24 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
     }, [card, isOpen, initialFormData]);
 
     useEffect(() => {
-        const formErrors = validateForm(formData);
-        setErrors(formErrors);
-        setIsButtonDisabled(Object.keys(formErrors).length > 0);
+        const validate = async () => {
+            const formErrors = await validateForm(formData);
+            setErrors(formErrors);
+            setIsButtonDisabled(Object.keys(formErrors).length > 0);
+        };
+        validate();
     }, [formData]);
 
     if (!isOpen) return null;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        setFormData({ ...formData, [name]: value.toString() });
     };
 
-    const handleSave = (e) => {
+    const handleSave = async (e) => {
         e.preventDefault();
-        const formErrors = validateForm(formData);
+        const formErrors = await validateForm(formData);
         setErrors(formErrors);
         if (Object.keys(formErrors).length === 0) {
             onSave(formData);
@@ -84,7 +88,7 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                     <label>Imagen:
                         <input
                             className={`modal-form-input ${errors.photo ? 'error' : ''}`}
-                            type="text"
+                            type="url"
                             name="photo"
                             value={formData.photo}
                             onChange={handleChange}
@@ -96,7 +100,7 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                     <label>Video:
                         <input
                             className={`modal-form-input ${errors.link ? 'error' : ''}`}
-                            type="text"
+                            type="url"
                             name="link"
                             value={formData.link}
                             onChange={handleChange}
