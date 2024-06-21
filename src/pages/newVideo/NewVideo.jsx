@@ -93,7 +93,7 @@ function NewVideo() {
                 </div>
                 <div className="form-section">
                     <div className="form-section__left">
-                        <label className="new-video__form-label">
+                        <label className={`new-video__form-label ${errors.title && touchedFields.title ? 'error-label' : ''}`}>
                             Título:
                             <input
                                 className={`new-video__form-input ${errors.title && touchedFields.title ? 'error' : ''}`}
@@ -111,7 +111,7 @@ function NewVideo() {
                     </div>
                     <div className="form-section__right">
                         <OptionList
-                            className="new-video__form-label"
+                            className={`new-video__form-label ${errors.team && touchedFields.team ? 'error-label' : ''}`}
                             value={formData.team}
                             onChange={(e) => {
                                 handleChange({ target: { name: 'team', value: e.target.value } });
@@ -124,7 +124,7 @@ function NewVideo() {
                 </div>
                 <div className="form-section">
                     <div className="form-section__left">
-                        <label className="new-video__form-label">
+                        <label className={`new-video__form-label ${errors.photo && touchedFields.photo ? 'error-label' : ''}`}>
                             Imagen:
                             <input
                                 className={`new-video__form-input ${errors.photo && touchedFields.photo ? 'error' : ''}`}
@@ -141,7 +141,7 @@ function NewVideo() {
                         </label>
                     </div>
                     <div className="form-section__right">
-                        <label className="new-video__form-label">
+                        <label className={`new-video__form-label ${errors.link && touchedFields.link ? 'error-label' : ''}`}>
                             Video:
                             <input
                                 className={`new-video__form-input ${errors.link && touchedFields.link ? 'error' : ''}`}
@@ -160,7 +160,7 @@ function NewVideo() {
                 </div>
                 <div className="form-section">
                     <div className="form-section__left">
-                        <label className="new-video__form-label">
+                        <label className={`new-video__form-label ${errors.description && touchedFields.description ? 'error-label' : ''}`}>
                             Descripción:
                             <textarea
                                 className={`new-video__form-input new-video__form-textarea ${errors.description && touchedFields.description ? 'error' : ''}`}
