@@ -16,11 +16,11 @@
 .modal-content {
     background: var(--color-bg-edit);
     border: 3px solid var(--color-frontend);
-    padding: 1.25rem;
+    padding: 2.25rem;
     border-radius: 0.938rem;
     max-width: 50rem;
-    width: 90%;
-    height: clamp(68.375rem, 100%, 69rem);
+    width: 100%;
+    max-height: 76.25rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@
     max-width: 35.813rem;
     align-self: center; 
     text-align: left;
-    margin: auto;
+    margin: 1rem 0 2.5rem 0;
 }
 
 .modal-form {
@@ -85,6 +85,8 @@
     outline: none;
     transition: border-color 0.3s ease;
     min-height: 3.875rem;
+    display: flex;
+    align-items: center;
 }
 
 .modal-form-input:focus {
@@ -129,7 +131,7 @@
     box-sizing: border-box;
     resize: none;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     outline: none;
     transition: border-color 0.3s ease;
     min-height: 3.875rem;
@@ -138,14 +140,17 @@
 }
 
 .modal-form-textarea {
-    min-height: 7rem; 
-    height: auto; 
+    width: 100%;
+    max-height: 7rem;
+    min-height: 3.875rem;
+    padding: 0.8rem; 
+    resize: vertical;
 }
 
 .modal-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin: auto;
     background: var(--color-bg-edit);
     width: 100%;
     max-width: 35.813rem;

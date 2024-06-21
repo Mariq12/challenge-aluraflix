@@ -172,7 +172,7 @@ function NewVideo() {
                                 onBlur={() => handleFieldBlur('description')}
                                 ref={descriptionRef}
                                 rows="4"
-                                maxLength="500"
+                                maxLength="300"
                                 required
                             />
                             {errors.description && touchedFields.description && <span className="error-message">{errors.description}</span>}
