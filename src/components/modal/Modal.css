@@ -53,7 +53,7 @@
 .modal-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     background: var(--color-bg-edit);
     align-self: center; 
     text-align: left;
@@ -134,7 +134,7 @@
     transition: border-color 0.3s ease;
     min-height: 3.875rem;
     font-size: 1.25rem;
-    border: 3px solid var(--color-blue-light) !important;
+    border: 3px solid var(--color-blue-light);
 }
 
 .modal-form-textarea {
@@ -182,6 +182,11 @@
 }
 
 .modal-form-input.error {
+    border-color: red !important;
+    color: red !important;
+}
+
+.selected-value.error {
     border-color: red !important;
 }
 
