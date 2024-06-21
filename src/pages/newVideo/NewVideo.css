@@ -59,7 +59,7 @@
 /* *FORM FIELDS */
 .new-video__form-label {
     display: block;
-    margin-bottom: 2rem;
+    margin-bottom: 0.4rem;
     font-size: 1.25rem;
 }
 
@@ -72,6 +72,7 @@
     border-radius: 0.5rem;
     background-color: transparent;
     height: 3.875rem;
+    margin-bottom: 0.5rem;
 }
 
 
@@ -82,7 +83,7 @@
 .new-video__form-textarea {
     width: 100%;
     padding: 0.8rem;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     border: 1px solid var(--color-light-gray);
     border-radius: 0.5rem;
     color: var(--color-white);
@@ -91,8 +92,8 @@
 
 .error-message {
     color: var(--color-error);
-    font-size: 1.4rem;
-    margin-top: 0.5rem;
+    font-size: 1rem;
+    background-color: transparent;
 }
 
 .new-video__form-buttons {
@@ -105,7 +106,7 @@
 
 .new-video__form-button {
     padding: 1rem 2rem;
-    font-size: 1.6rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin: 0 1rem;
     border: none;

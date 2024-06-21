@@ -129,7 +129,7 @@ function NewVideo() {
                             <input
                                 className={`new-video__form-input ${errors.photo && touchedFields.photo ? 'error' : ''}`}
                                 type="url"
-                                placeholder='El enlace es obligatorio'
+                                placeholder='Ingresar enlace de la imagen'
                                 name="photo"
                                 value={formData.photo}
                                 onChange={handleChange}
@@ -146,7 +146,7 @@ function NewVideo() {
                             <input
                                 className={`new-video__form-input ${errors.link && touchedFields.link ? 'error' : ''}`}
                                 type="url"
-                                placeholder='Ingrese el enlace del video'
+                                placeholder='Ingresar enlace del video'
                                 name="link"
                                 value={formData.link}
                                 onChange={handleChange}
