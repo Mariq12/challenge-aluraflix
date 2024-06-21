@@ -16,29 +16,50 @@ function NewVideo() {
 
     const [formData, setFormData] = useState(initialFormData);
     const [errors, setErrors] = useState({});
+    const [touchedFields, setTouchedFields] = useState({
+        title: false,
+        team: false,
+        photo: false,
+        link: false,
+        description: false,
+    });
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const descriptionRef = useRef(null);
     const navigateTo = useNavigate();
 
     useEffect(() => {
-        const validate = async () => {
-            const formErrors = await validateForm(formData);
-            setErrors(formErrors);
-            setIsButtonDisabled(Object.keys(formErrors).length > 0);
-        };
-        validate();
+        validateFormAndSetErrors();
     }, [formData]);
+
+    const validateFormAndSetErrors = async () => {
+        const formErrors = await validateForm(formData);
+        setErrors(formErrors);
+        setIsButtonDisabled(Object.keys(formErrors).length > 0 || !isFormFilled(formData));
+    };
+
+    const isFormFilled = (formData) => {
+        return (
+            formData.title.trim() !== '' &&
+            formData.team.trim() !== '' &&
+            formData.photo.trim() !== '' &&
+            formData.link.trim() !== '' &&
+            formData.description.trim() !== ''
+        );
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
+    const handleFieldBlur = (field) => {
+        setTouchedFields({ ...touchedFields, [field]: true });
+    };
+
     const handleSave = async (e) => {
         e.preventDefault();
-        const formErrors = await validateForm(formData);
-        setErrors(formErrors);
-        if (Object.keys(formErrors).length === 0) {
+        await validateFormAndSetErrors();
+        if (isFormFilled(formData) && Object.keys(errors).length === 0) {
             console.log('Formulario válido. Guardando...', formData);
             navigateTo('/'); // Redirigir a la página principal después de guardar
         }
@@ -47,6 +68,13 @@ function NewVideo() {
     const handleCancel = () => {
         setFormData(initialFormData);
         setErrors({});
+        setTouchedFields({
+            title: false,
+            team: false,
+            photo: false,
+            link: false,
+            description: false,
+        });
     };
 
     return (
@@ -68,25 +96,29 @@ function NewVideo() {
                         <label className="new-video__form-label">
                             Título:
                             <input
-                                className={`new-video__form-input ${errors.title ? 'error' : ''}`}
+                                className={`new-video__form-input ${errors.title && touchedFields.title ? 'error' : ''}`}
                                 type="text"
                                 placeholder='Ingresar título del video'
                                 name="title"
                                 value={formData.title}
                                 onChange={handleChange}
+                                onBlur={() => handleFieldBlur('title')}
                                 maxLength="200"
                                 required
                             />
-                            {errors.title && <span className="error-message">{errors.title}</span>}
+                            {errors.title && touchedFields.title && <span className="error-message">{errors.title}</span>}
                         </label>
                     </div>
                     <div className="form-section__right">
                         <OptionList
                             value={formData.team}
-                            onChange={(e) => handleChange({ target: { name: 'team', value: e.target.value } })}
+                            onChange={(e) => {
+                                handleChange({ target: { name: 'team', value: e.target.value } });
+                                handleFieldBlur('team');
+                            }}
                             options={categoryData}
                         />
-                        {errors.team && <span className="error-message">{errors.team}</span>}
+                        {errors.team && touchedFields.team && <span className="error-message">{errors.team}</span>}
                     </div>
                 </div>
                 <div className="form-section">
@@ -94,32 +126,34 @@ function NewVideo() {
                         <label className="new-video__form-label">
                             Imagen:
                             <input
-                                className={`new-video__form-input ${errors.photo ? 'error' : ''}`}
+                                className={`new-video__form-input ${errors.photo && touchedFields.photo ? 'error' : ''}`}
                                 type="url"
                                 placeholder='El enlace es obligatorio'
                                 name="photo"
                                 value={formData.photo}
                                 onChange={handleChange}
+                                onBlur={() => handleFieldBlur('photo')}
                                 maxLength="200"
                                 required
                             />
-                            {errors.photo && <span className="error-message">{errors.photo}</span>}
+                            {errors.photo && touchedFields.photo && <span className="error-message">{errors.photo}</span>}
                         </label>
                     </div>
                     <div className="form-section__right">
                         <label className="new-video__form-label">
                             Video:
                             <input
-                                className={`new-video__form-input ${errors.link ? 'error' : ''}`}
+                                className={`new-video__form-input ${errors.link && touchedFields.link ? 'error' : ''}`}
                                 type="url"
                                 placeholder='Ingrese el enlace del video'
                                 name="link"
                                 value={formData.link}
                                 onChange={handleChange}
+                                onBlur={() => handleFieldBlur('link')}
                                 maxLength="200"
                                 required
                             />
-                            {errors.link && <span className="error-message">{errors.link}</span>}
+                            {errors.link && touchedFields.link && <span className="error-message">{errors.link}</span>}
                         </label>
                     </div>
                 </div>
@@ -128,17 +162,18 @@ function NewVideo() {
                         <label className="new-video__form-label">
                             Descripción:
                             <textarea
-                                className={`new-video__form-input new-video__form-textarea ${errors.description ? 'error' : ''}`}
+                                className={`new-video__form-input new-video__form-textarea ${errors.description && touchedFields.description ? 'error' : ''}`}
                                 name="description"
                                 placeholder='¿De qué se trata este vídeo?'
                                 value={formData.description}
                                 onChange={handleChange}
+                                onBlur={() => handleFieldBlur('description')}
                                 ref={descriptionRef}
-                                rows="4" 
+                                rows="4"
                                 maxLength="500"
                                 required
                             />
-                            {errors.description && <span className="error-message">{errors.description}</span>}
+                            {errors.description && touchedFields.description && <span className="error-message">{errors.description}</span>}
                         </label>
                     </div>
                 </div>
