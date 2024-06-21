@@ -10,6 +10,7 @@
     align-items: center;
     z-index: 1000;
     overflow-y: auto;
+    padding: 2rem;
 }
 
 .modal-content {
@@ -40,14 +41,13 @@
 
 .modal-content h1 {
     font-size: 3.75rem;
-    margin-bottom: 20px;
     color: var(--color-blue-light);
     background: var(--color-bg-edit);
-    overflow: hidden;
     width: 100%;
     max-width: 35.813rem;
     align-self: center; 
     text-align: left;
+    margin: auto;
 }
 
 .modal-form {
