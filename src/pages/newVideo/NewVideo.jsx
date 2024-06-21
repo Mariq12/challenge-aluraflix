@@ -26,9 +26,10 @@ function NewVideo() {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const descriptionRef = useRef(null);
     const navigateTo = useNavigate();
-
+    
     useEffect(() => {
         validateFormAndSetErrors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formData]);
 
     const validateFormAndSetErrors = async () => {
