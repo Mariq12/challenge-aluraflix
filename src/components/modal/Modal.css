@@ -15,12 +15,11 @@
 .modal-content {
     background: var(--color-bg-edit);
     border: 3px solid var(--color-frontend);
-    padding: 20px;
-    border-radius: 15px;
-    max-width: 800px;
+    padding: 1.25rem;
+    border-radius: 0.938rem;
+    max-width: 50rem;
     width: 90%;
-    max-height: 1074px;
-    height: auto;
+    height: clamp(68.375rem, 100%, 69rem);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -46,7 +45,7 @@
     background: var(--color-bg-edit);
     overflow: hidden;
     width: 100%;
-    max-width: 573px;
+    max-width: 35.813rem;
     align-self: center; 
     text-align: left;
 }
@@ -58,7 +57,7 @@
     background: var(--color-bg-edit);
     align-self: center; 
     text-align: left;
-    max-width: 573px;
+    max-width: 35.813rem;
     width: 100%;
 }
 
@@ -68,6 +67,7 @@
     font-size: 1.25rem;
     color: var(--color-white);
     background: var(--color-bg-edit);
+    
 }
 
 .modal-form-input {
@@ -127,7 +127,7 @@
     margin-top: 20px;
     background: var(--color-bg-edit);
     width: 100%;
-    max-width: 573px;
+    max-width: 35.813rem;
     font-size: 1.25rem;
 }
 
@@ -168,7 +168,6 @@
     color: red !important;
     background: var(--color-bg-edit);
     font-size: 0.875rem;
-    margin-top: 0.25rem;
 }
 
 .modal-button-save.disabled {
