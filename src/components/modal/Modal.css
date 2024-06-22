@@ -139,24 +139,6 @@
     font-weight: bold;
 }
 
-.selected-value {
-    background: var(--color-bg-edit);
-    color: var(--color-light-gray);
-    margin-top: 1rem;
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    resize: none;
-    overflow: hidden;
-    margin-bottom: 0.5rem;
-    outline: none;
-    transition: border-color 0.3s ease;
-    min-height: 3.875rem;
-    font-size: 1.25rem;
-    border: 3px solid var(--color-blue-light);
-}
-
 .modal-form-textarea {
     width: 100%;
     max-height: 7rem;
