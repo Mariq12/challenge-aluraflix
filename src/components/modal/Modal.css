@@ -187,21 +187,21 @@
 }
 
 .modal-form-input.error {
-    border-color: red !important;
-    color: red !important;
+    border-color: var(--color-error) !important;
+    color: var(--color-error) !important;
 }
 
 .selected-value.error {
-    border-color: red !important;
+    border-color: var(--color-error) !important;
 }
 
 .error-message {
-    color: red !important;
+    color: var(--color-error) !important;
     background: var(--color-bg-edit);
     font-size: 0.875rem;
 }
 
 .modal-button-save.disabled {
-    background-color: grey;
+    background-color: var(--color-light-gray);
     cursor: not-allowed;
 }
