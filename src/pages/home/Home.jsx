@@ -3,10 +3,11 @@ import Banner from "../../components/banner/Banner";
 import Category from "../../components/category/Category";
 import Modal from "../../components/modal/Modal";
 import categoryData from "../../data/CategoryData";
+import { useVideoContext } from "../../contexts/VideoContext";
 import './Home.module.css';
 
 function Home() {
-    const [cards, setCards] = useState([]);
+    const { videos, deleteVideo, updateVideo } = useVideoContext();
     const [categories, setCategories] = useState([]);
     const [bannerCard, setBannerCard] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
@@ -17,20 +18,12 @@ function Home() {
         setCategories(categoryData);
     }, []);
 
-    // Cargar videos desde la API
     useEffect(() => {
-        fetch("https://my-json-server.typicode.com/Mariq12/api-challengue-aluraflix/videos")
-            .then(response => response.json())
-            .then(data => {
-                setCards(data);
-                if (data.length > 0) {
-                    setBannerCard(data[0]); // Configurar el primer bannerCard inicialmente
-                }
-            })
-            .catch(error => console.error("Error fetching data from API:", error));
-    }, []);
+        if (videos.length > 0) {
+            setBannerCard(videos[0]);
+        }
+    }, [videos]);
 
-    // Construir categoryLookup a partir de categories
     useEffect(() => {
         const lookup = {};
         categories.forEach(category => {
@@ -48,11 +41,10 @@ function Home() {
     };
 
     const handleCardDelete = (cardId) => {
-        const updatedCards = cards.filter(card => card.id !== cardId);
-        setCards(updatedCards);
-        if (bannerCard && bannerCard.id === cardId && updatedCards.length > 0) {
-            setBannerCard(updatedCards[0]);
-        } else if (updatedCards.length === 0) {
+        deleteVideo(cardId);
+        if (bannerCard && bannerCard.id === cardId && videos.length > 0) {
+            setBannerCard(videos[0]);
+        } else if (videos.length === 0) {
             setBannerCard(null);
         }
     };
@@ -67,8 +59,7 @@ function Home() {
     };
 
     const handleModalSave = (updatedCard) => {
-        const updatedCards = cards.map(card => card.id === updatedCard.id ? updatedCard : card);
-        setCards(updatedCards);
+        updateVideo(updatedCard);
         setModalOpen(false);
     };
 
@@ -79,7 +70,7 @@ function Home() {
                 <Category
                     key={category.id}
                     datos={category}
-                    cards={cards.filter(card => card.category === category.name)}
+                    cards={videos.filter(card => card.category === category.name)}
                     onCardClick={handleCardClick}
                     onCardDelete={handleCardDelete}
                     onCardEdit={handleCardEdit}

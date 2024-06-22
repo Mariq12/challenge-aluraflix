@@ -23,7 +23,7 @@ const Category = ({ datos, cards, onCardClick, onCardDelete, onCardEdit }) => {
                                 primaryColor={primaryColor}
                                 onClick={() => onCardClick(card)}
                                 onDelete={() => onCardDelete(card.id)}
-                                onEdit={() => onCardEdit(card)} // Pasar onCardEdit con los datos de la tarjeta
+                                onEdit={() => onCardEdit(card)}
                             />
                         ))}
                     </div>

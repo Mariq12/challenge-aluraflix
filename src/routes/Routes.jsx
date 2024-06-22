@@ -4,18 +4,22 @@ import Header from "../components/header/Header.jsx";
 import Home from "../pages/home/Home.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewVideo from "../pages/newVideo/NewVideo.jsx";
+import { VideoProvider } from "../contexts/VideoContext.jsx";
+
 
 function AppRoutes() {
     return (
-        <BrowserRouter>
-            <Header />
-            <Routes>
+        <VideoProvider>
+            <BrowserRouter>
+                <Header />
+                <Routes>
                     <Route index element={<Home />}></Route>
                     <Route path="newVideo" element={<NewVideo />}></Route>
-            </Routes>
-            <Footer />
-            <FooterBar />
-        </BrowserRouter>
+                </Routes>
+                <Footer />
+                <FooterBar />
+            </BrowserRouter>
+        </VideoProvider>
     );
 }
 

@@ -4,8 +4,10 @@ import './NewVideo.css';
 import categoryData from '../../data/CategoryData';
 import { validateForm } from '../../utils/ValidateForm';
 import OptionList from '../../components/optionList/OptionList';
+import { useVideoContext } from '../../contexts/VideoContext';
 
 function NewVideo() {
+    const { addVideo } = useVideoContext();
     const initialFormData = {
         title: '',
         category: '',
@@ -61,7 +63,8 @@ function NewVideo() {
         await validateFormAndSetErrors();
         if (isFormFilled(formData) && Object.keys(errors).length === 0) {
             console.log('Formulario válido. Guardando...', formData);
-            navigateTo('/'); // Redirigir a la página principal después de guardar
+            addVideo(formData);
+            navigateTo('/');
         }
     };
 

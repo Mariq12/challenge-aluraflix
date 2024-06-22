@@ -37,7 +37,6 @@ Card.propTypes = {
     datos: PropTypes.shape({
         photo: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        // Asegúrate de incluir cualquier otra propiedad necesaria para editar
     }).isRequired,
     onClick: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
