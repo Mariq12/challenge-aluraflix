@@ -15,9 +15,9 @@ export const validateForm = async (formData) => {
         errors.title = 'El título no puede tener más de 200 caracteres.';
     }
 
-    // Validate team
-    if (!trimmedFormData.team) {
-        errors.team = 'El equipo es requerido.';
+    // Validate category
+    if (!trimmedFormData.category) {
+        errors.category = 'El equipo es requerido.';
     }
 
     // Validate photo URL

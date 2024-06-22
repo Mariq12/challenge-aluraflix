@@ -10,7 +10,7 @@ export const messages = {
         valueMissing: "El campo título no puede estar vacío.",
         tooShort: "El título debe tener al menos 3 caracteres.",
     },
-    team: {
+    category: {
         valueMissing: "Por favor, seleccione un equipo.",
     },
     photo: {

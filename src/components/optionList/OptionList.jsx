@@ -12,7 +12,7 @@ const OptionList = ({ value, onChange, options, clase, clase2 }) => {
     };
 
     const handleSelectOption = (option) => {
-        onChange({ target: { name: 'team', value: option } });
+        onChange({ target: { name: 'category', value: option } });
         setIsOpen(false);
     };
 

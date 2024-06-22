@@ -9,7 +9,7 @@ import { validateForm } from '../../utils/ValidateForm';
 const Modal = ({ card, isOpen, onClose, onSave }) => {
     const initialFormData = useMemo(() => ({
         title: '',
-        team: '',
+        category: '',
         photo: '',
         link: '',
         description: '',
@@ -81,11 +81,11 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                     <OptionList
                         clase={`modal-form-input modal-form-option ${errors.photo ? 'error' : ''}`}
                         clase2='dropdown-option'
-                        value={formData.team}
-                        onChange={(e) => handleChange({ target: { name: 'team', value: e.target.value } })}
+                        value={formData.category}
+                        onChange={(e) => handleChange({ target: { name: 'category', value: e.target.value } })}
                         options={categoryData}
                     />
-                    {errors.team && <span className="error-message">{errors.team}</span>}
+                    {errors.category && <span className="error-message">{errors.category}</span>}
                     <label>Imagen:
                         <input
                             className={`modal-form-input ${errors.photo ? 'error' : ''}`}
