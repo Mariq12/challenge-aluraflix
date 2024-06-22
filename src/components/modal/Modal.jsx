@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { IoMdCloseCircleOutline } from "react-icons/io";
-
 import './Modal.css';
 import categoryData from '../../data/CategoryData';
 import OptionList from '../optionList/OptionList';

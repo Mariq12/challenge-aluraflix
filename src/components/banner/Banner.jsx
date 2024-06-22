@@ -1,15 +1,13 @@
 import PropTypes from 'prop-types';
-import styles from "./Banner.module.css";
-import categoryData from "../../data/CategoryData";
-import banner from "../../assets/banner1.png";
+import styles from './Banner.module.css';
+import banner from '../../assets/banner1.png'; 
+function Banner({ card, categoryLookup }) {
+    if (!card || !card.category || !categoryLookup || !categoryLookup[card.category]) {
+        return null;
+    }
 
-const categoryLookup = categoryData.reduce((acc, category) => {
-    acc[category.name] = category;
-    return acc;
-}, {});
-
-function Banner({ card }) {
-    const { name, primaryColor } = categoryLookup[card.team];
+    const { title, link, description } = card;
+    const { name, primaryColor } = categoryLookup[card.category];
 
     const titleStyle = {
         borderColor: primaryColor,
@@ -18,20 +16,20 @@ function Banner({ card }) {
 
     return (
         <main id="banner" className={styles.layer} style={{ backgroundImage: `url(${banner})` }}>
-            <div className={styles.gradient}></div>
+            <div className={styles.gradient}></div> 
             <section className={styles.content}>
                 <h1 className={styles.name} style={titleStyle}>{name}</h1>
-                <h2 className={styles.title}>{card.title}</h2>
-                <p className={styles.subtitle}>{card.description}</p>
+                <h2 className={styles.title}>{title}</h2>
+                <p className={styles.subtitle}>{description}</p>
             </section>
             <section className={styles.container} style={{ 
                 borderColor: primaryColor, 
                 borderStyle: 'solid', 
                 borderWidth: '4px' 
-                }}>
+            }}>
                 <iframe
-                    src={card.link}
-                    title={card.title}
+                    src={link}
+                    title={title}
                     className={styles.video}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -44,12 +42,13 @@ function Banner({ card }) {
 
 Banner.propTypes = {
     card: PropTypes.shape({
-        photo: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
         link: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        team: PropTypes.string.isRequired,
-    }).isRequired,
+    }),
+    categoryLookup: PropTypes.object.isRequired,
 };
 
 export default Banner;
