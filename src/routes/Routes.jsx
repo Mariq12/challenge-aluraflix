@@ -16,8 +16,9 @@ function AppRoutes() {
                     <Route index element={<Home />}></Route>
                     <Route path="newVideo" element={<NewVideo />}></Route>
                 </Routes>
-                <Footer />
+                
                 <FooterBar />
+                <Footer />
             </BrowserRouter>
         </VideoProvider>
     );
