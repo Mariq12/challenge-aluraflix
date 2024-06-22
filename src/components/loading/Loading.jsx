@@ -1,5 +1,5 @@
 import { GooeyCircleLoader } from 'react-loaders-kit';
-import './Loading.css'; // Importa el archivo CSS
+import './Loading.css';
 
 const getCssVariable = (variable) => {
     return getComputedStyle(document.documentElement).getPropertyValue(variable);
@@ -12,7 +12,7 @@ const Loading = () => {
 
     const loaderProps = {
         loading: true,
-        size: 100,
+        size: 100, 
         duration: 1,
         colors: [headerBgColor, stSecondaryColor, ndSecondaryColor],
     };

@@ -4,7 +4,6 @@
   background-color: var(--color-bg);
   overflow-x: hidden;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 :root {
