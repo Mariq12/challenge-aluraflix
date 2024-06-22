@@ -4,7 +4,7 @@ import Category from "../../components/category/Category";
 import Modal from "../../components/modal/Modal";
 import categoryData from "../../data/CategoryData";
 import { useVideoContext } from "../../contexts/VideoContext";
-import './Home.module.css';
+import Loading from "../../components/loading/Loading"; 
 
 function Home() {
     const { videos, deleteVideo, updateVideo } = useVideoContext();
@@ -13,6 +13,7 @@ function Home() {
     const [modalOpen, setModalOpen] = useState(false);
     const [currentCard, setCurrentCard] = useState(null);
     const [categoryLookup, setCategoryLookup] = useState({});
+    const [isLoading, setIsLoading] = useState(true); 
 
     useEffect(() => {
         setCategories(categoryData);
@@ -21,6 +22,9 @@ function Home() {
     useEffect(() => {
         if (videos.length > 0) {
             setBannerCard(videos[0]);
+            setIsLoading(false);
+        } else {
+            setIsLoading(true);
         }
     }, [videos]);
 
@@ -64,25 +68,27 @@ function Home() {
     };
 
     return (
-        <div className="home-container">
-            {bannerCard && <Banner card={bannerCard} categoryLookup={categoryLookup} />}
-            {categories.map(category => (
-                <Category
-                    key={category.id}
-                    datos={category}
-                    cards={videos.filter(card => card.category === category.name)}
-                    onCardClick={handleCardClick}
-                    onCardDelete={handleCardDelete}
-                    onCardEdit={handleCardEdit}
+        isLoading ?
+            <Loading /> :
+            <div className="home-container">
+                {bannerCard && <Banner card={bannerCard} categoryLookup={categoryLookup} />}
+                {categories.map(category => (
+                    <Category
+                        key={category.id}
+                        datos={category}
+                        cards={videos.filter(card => card.category === category.name)}
+                        onCardClick={handleCardClick}
+                        onCardDelete={handleCardDelete}
+                        onCardEdit={handleCardEdit}
+                    />
+                ))}
+                <Modal
+                    card={currentCard}
+                    isOpen={modalOpen}
+                    onClose={handleModalClose}
+                    onSave={handleModalSave}
                 />
-            ))}
-            <Modal
-                card={currentCard}
-                isOpen={modalOpen}
-                onClose={handleModalClose}
-                onSave={handleModalSave}
-            />
-        </div>
+            </div>
     );
 }
 
