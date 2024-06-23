@@ -22,10 +22,8 @@ function Banner({ card, categoryLookup }) {
                 <h2 className={styles.title}>{title}</h2>
                 <p className={styles.subtitle}>{description}</p>
             </section>
-            <section className={styles.container} style={{ 
+            <section className={styles.containerBainner} style={{ 
                 borderColor: primaryColor, 
-                borderStyle: 'solid', 
-                borderWidth: '4px' 
             }}>
                 <iframe
                     src={link}

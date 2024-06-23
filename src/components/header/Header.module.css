@@ -6,6 +6,7 @@
     background-color: var(--color-black);
     border-bottom: 3px solid var(--color-blue);
 }
+
 a{ text-decoration: none;}
 
 .logoContainer{
