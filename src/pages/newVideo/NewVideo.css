@@ -189,3 +189,35 @@
 .new-video__form-button--cancel:hover {
     background-color: var(--color-light-gray);
 }
+
+/* *MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+    .new-video__title {
+        font-size: 2.5rem;
+    }
+    .new-video__description {
+        font-size: 0.938rem;
+    }
+    .new-video__form {
+        max-width: 100%;
+    }
+    .new-video__form-title {
+        font-size: 2.25rem;
+    }
+
+    .form-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-section__left,
+    .form-section__right {
+        margin: 0;
+    }
+
+    .new-video__form-buttons {
+        display: flex;
+        flex-direction: column;
+        margin: 0 1rem 1rem 1rem;
+    }
+}
