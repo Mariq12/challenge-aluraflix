@@ -94,9 +94,6 @@
     outline: none;
 }
 
-.modal-form-option {
-    margin-bottom: 0 !important;
-}
 .input-with-icon {
     display: flex;
     align-items: center;
@@ -164,6 +161,9 @@
 
 /* *Media queries* */
 @media screen and (max-width: 768px) {
+    .modal-overlay {
+        padding: 3rem 1rem 6rem 1rem;
+    }
     .modal-content {
         padding: 1rem;
     }
