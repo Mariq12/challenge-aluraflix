@@ -146,8 +146,6 @@
     padding: 0.8rem; 
     resize: vertical;
 }
-/* *Boton */
-
 
 .modal-form-input.error {
     border-color: var(--color-error) !important;
@@ -164,3 +162,17 @@
     font-size: 0.875rem;
 }
 
+/* *Media queries* */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        padding: 1rem;
+    }
+    .close-icon {
+        height: 4.375rem;
+        gap: 1rem;
+    }
+    .modal-content h1 {
+        font-size: 2rem;
+        margin-top: 4rem;
+    }
+}
