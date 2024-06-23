@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 import { BsInstagram, BsLinkedin } from "react-icons/bs";
 import { FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
-
 import './Footer.css';
 import logo from '../../assets/logo.png';
 
@@ -15,6 +14,8 @@ const StyledFooter = styled.footer`
     background-color: var(--color-black);
     padding: 2rem;
     box-sizing: border-box;
+    border-top: 4px solid var(--color-blue);
+    box-shadow: 0 -10px 15px 0 var(--color-button-shadow);
 `;
 
 const IconContainer = styled.ul`

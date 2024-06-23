@@ -4,7 +4,7 @@
     align-items: center;
     padding: 2.4rem 2.5rem;
     background-color: var(--color-black);
-    border-bottom: 3px solid var(--color-blue);
+    border-bottom: 4px solid var(--color-blue);
 }
 
 a{ text-decoration: none;}
