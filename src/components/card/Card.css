@@ -1,6 +1,6 @@
 .card {
-    width: 375px;
-    height: 280px;
+    width: 26.875rem;
+    height: 20rem;
     margin-bottom: 1.5rem;
     margin-top: 2rem;
     display: flex;
@@ -41,17 +41,18 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    gap: 1.5rem;
     font-size: 1rem;
     margin-top: 4px;
     border-radius: 0 0 10px 10px;
-    height: 28%;
+    height: 3.688rem;
 }
 
 .card__icon-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: transparent;
+    width: 6.839rem;
 }
 .card__icon-wrapper:hover {
     color: var(--color-blue);
@@ -90,6 +91,6 @@
         padding: 0;
     }
     .card {
-        width: 90%;
+        width: 100%;
     }
 }

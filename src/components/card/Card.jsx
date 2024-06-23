@@ -20,11 +20,11 @@ const Card = ({ datos, primaryColor, onClick, onDelete, onEdit }) => {
                 <figcaption className="card__icons" >
                     <div className="card__icon-wrapper card-icon-delete" onClick={(e) => { e.stopPropagation(); onDelete(); }}>
                         <RiDeleteBin2Line className="card__icon" />
-                        <span className="card__icon-text">Eliminar</span>
+                        <span className="card__icon-text">BORRAR</span>
                     </div>
                     <div className="card__icon-wrapper card-icon-edit" onClick={(e) => { e.stopPropagation(); onEdit(datos); }}>
                         <RiEdit2Line className="card__icon" />
-                        <span className="card__icon-text">Editar</span>
+                        <span className="card__icon-text">EDITAR</span>
                     </div>
                 </figcaption>
             </figure>
