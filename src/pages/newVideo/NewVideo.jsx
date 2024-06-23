@@ -5,6 +5,7 @@ import categoryData from '../../data/CategoryData';
 import { validateForm } from '../../utils/ValidateForm';
 import OptionList from '../../components/optionList/OptionList';
 import { useVideoContext } from '../../contexts/VideoContext';
+import FormButton from '../../components/button/FormButton';
 
 function NewVideo() {
     const { addVideo } = useVideoContext();
@@ -184,20 +185,18 @@ function NewVideo() {
                         </div>
                     </div>
                     <div className="new-video__form-buttons">
-                        <button
+                        <FormButton
                             type="submit"
-                            className="new-video__form-button new-video__form-button--save"
+                            label="GUARDAR"
                             disabled={isButtonDisabled}
-                        >
-                            GUARDAR
-                        </button>
-                        <button
+                            buttonType="form-button--save"
+                        />
+                        <FormButton
                             type="button"
-                            className="new-video__form-button new-video__form-button--cancel"
+                            label="LIMPIAR"
                             onClick={handleCancel}
-                        >
-                            CANCELAR
-                        </button>
+                            buttonType="form-button--cancel"
+                        />
                     </div>
                 </form>
             </div>

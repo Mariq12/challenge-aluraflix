@@ -5,6 +5,7 @@ import './Modal.css';
 import categoryData from '../../data/CategoryData';
 import OptionList from '../optionList/OptionList';
 import { validateForm } from '../../utils/ValidateForm';
+import FormButton from '../button/FormButton';
 
 const Modal = ({ card, isOpen, onClose, onSave }) => {
     const initialFormData = useMemo(() => ({
@@ -54,7 +55,7 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
         }
     };
 
-    const handleClear = () => {
+    const handleCancel = () => {
         setFormData(initialFormData);
         setErrors({});
         setIsButtonDisabled(true);
@@ -123,21 +124,19 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                         />
                         {errors.description && <span className="error-message">{errors.description}</span>}
                     </label>
-                    <div className="modal-buttons">
-                        <button
+                    <div className="new-video__form-buttons">
+                        <FormButton
                             type="submit"
-                            className={`modal-button-save ${isButtonDisabled ? 'disabled' : ''}`}
+                            label="GUARDAR"
                             disabled={isButtonDisabled}
-                        >
-                            GUARDAR
-                        </button>
-                        <button
+                            buttonType="form-button--save"
+                        />
+                        <FormButton
                             type="button"
-                            className='modal-button-delete'
-                            onClick={handleClear}
-                        >
-                            LIMPIAR
-                        </button>
+                            label="LIMPIAR"
+                            onClick={handleCancel}
+                            buttonType="form-button--cancel"
+                        />
                     </div>
                 </form>
             </div>
