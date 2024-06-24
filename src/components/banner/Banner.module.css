@@ -76,12 +76,13 @@
     z-index: 1;
     border-radius: 15px;
     overflow-y: hidden;
-    border: 4px double var(--color-white-smoke);
-    box-shadow: 2px 5px 15px var(--color-black);
+    border-bottom: 4px solid var(--primary-color);
+    box-shadow: 2px 5px 15px var(--primary-color);
+    transition: box-shadow 0.3s ease;
 }
 
 .containerBanner:hover {
-    box-shadow: 2px 5px 10px var(--color-frontend);
+    box-shadow: 0 0 10px var(--primary-color);
 }
 
 .video {

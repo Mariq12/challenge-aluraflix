@@ -23,7 +23,7 @@ function Banner({ card, categoryLookup }) {
     };
 
     return (
-        <main id="banner" className={styles.layer} style={{ backgroundImage: `url(${banner})` }}>
+        <main id="banner" className={styles.layer} style={{ backgroundImage: `url(${banner})`, '--primary-color': primaryColor }}>
             <div className={styles.gradient}></div> 
             <section className={styles.content}>
                 <h1 className={styles.name} style={titleStyle}>{name}</h1>
@@ -41,9 +41,7 @@ function Banner({ card, categoryLookup }) {
                     </div>
                 )}
             </section>
-            <section className={styles.containerBanner} style={{ 
-                borderColor: primaryColor, 
-            }}>
+            <section className={styles.containerBanner}>
                 <iframe
                     src={link}
                     title={title}
