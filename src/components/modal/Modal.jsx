@@ -6,6 +6,7 @@ import categoryData from '../../data/CategoryData';
 import OptionList from '../optionList/OptionList';
 import { validateForm } from '../../utils/ValidateForm';
 import FormButton from '../button/FormButton';
+import ConfirmationDialog from '../confirmationDialog/ConfirmationDialog';
 
 const Modal = ({ card, isOpen, onClose, onSave }) => {
     const initialFormData = useMemo(() => ({
@@ -20,6 +21,7 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
     const [errors, setErrors] = useState({});
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const descriptionRef = useRef(null);
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
     useEffect(() => {
         if (isOpen && card) {
@@ -51,8 +53,17 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
         const formErrors = await validateForm(formData);
         setErrors(formErrors);
         if (Object.keys(formErrors).length === 0) {
-            onSave(formData);
+            setShowConfirmation(true);
         }
+    };
+
+    const handleConfirmSave = () => {
+        onSave(formData);
+        setShowConfirmation(false);
+    };
+
+    const handleCancelSave = () => {
+        setShowConfirmation(false);
     };
 
     const handleCancel = () => {
@@ -140,6 +151,13 @@ const Modal = ({ card, isOpen, onClose, onSave }) => {
                     </div>
                 </form>
             </div>
+            {showConfirmation && (
+                <ConfirmationDialog
+                    message={`¿Estás seguro de que deseas guardar los cambios?`}
+                    onConfirm={handleConfirmSave}
+                    onCancel={handleCancelSave}
+                />
+            )}
         </div>
     );
 };
