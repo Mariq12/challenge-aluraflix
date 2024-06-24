@@ -6,6 +6,8 @@ import { validateForm } from '../../utils/ValidateForm';
 import OptionList from '../../components/optionList/OptionList';
 import { useVideoContext } from '../../contexts/VideoContext';
 import FormButton from '../../components/button/FormButton';
+import Notification from '../../components/notification/Notification';
+import ConfirmationDialog from '../../components/confirmationDialog/ConfirmationDialog';
 
 function NewVideo() {
     const { addVideo } = useVideoContext();
@@ -29,6 +31,9 @@ function NewVideo() {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const descriptionRef = useRef(null);
     const navigateTo = useNavigate();
+    const [showNotification, setShowNotification] = useState(false);
+    const [notificationMessage, setNotificationMessage] = useState('');
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
     useEffect(() => {
         validateFormAndSetErrors();
@@ -63,10 +68,23 @@ function NewVideo() {
         e.preventDefault();
         await validateFormAndSetErrors();
         if (isFormFilled(formData) && Object.keys(errors).length === 0) {
-            console.log('Formulario válido. Guardando...', formData);
-            addVideo(formData);
-            navigateTo('/');
+            setShowConfirmation(true); 
         }
+    };
+
+    const handleConfirmSave = () => {
+        addVideo(formData);
+        setNotificationMessage('El video se ha guardado exitosamente.');
+        setShowConfirmation(false);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+            navigateTo('/');
+        }, 3000); 
+    };
+
+    const handleCancelSave = () => {
+        setShowConfirmation(false);
     };
 
     const handleCancel = () => {
@@ -200,6 +218,19 @@ function NewVideo() {
                     </div>
                 </form>
             </div>
+            {showNotification && (
+                <Notification
+                    message={notificationMessage}
+                    onClose={() => setShowNotification(false)}
+                />
+            )}
+            {showConfirmation && (
+                <ConfirmationDialog
+                    message={`¿Estás seguro de que deseas guardar este nuevo video?`}
+                    onConfirm={handleConfirmSave}
+                    onCancel={handleCancelSave}
+                />
+            )}
         </div>
     );
 }
