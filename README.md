@@ -128,6 +128,68 @@ Inicia el proyecto en [http://localhost:5173/](http://localhost:5173/)
             │   ├── globalStyles
             │   │   ├── GlobalStyles.jsx
 
+6.  **API falsa con json server**
+
+    **6.1.** Instalar [json-server](https://www.npmjs.com/package/json-server), para Almacenamiento de Datos.
+
+        npm install json-server
+
+    Dentro del **package.json** se agrega automáticamente la siguiente dependencia:
+
+        "json-server": "^1.0.0-beta.0"
+
+    **6.2.** Crear un archivo db.json que tenga esta estructura:
+
+             {
+                    "videos": [
+                        {
+                            "id": 1,
+                            "title": "Qué Significa Pensar Como Programador",
+                            "category": "FRONT END",
+                            "photo": "https://i.ytimg.com/vi/ov7vA5HFe6w/sddefault.jpg",
+                            "link": "https://www.youtube.com/embed/ov7vA5HFe6w?si=rFYWWhqKMEWzxiJn",
+                            "description": "¿Cuáles son las principales características de un programador? ¿Qué habilidades y competencias debe tener alguien que quiere seguir esa carrera? En este video Christian Velasco nos habla de las principales características de un Programador."
+                        },
+                    ]
+            }
+
+    **6.3.** Ejecutar el siguiente comando para levantar el servidor:
+
+            npx json-server --watch db.json --port 3000
+
+### Opcional
+
+7. Para iniciar el servidor y proyectos al mismo tiempo instalar [concurrently](https://www.npmjs.com/package/concurrently)
+
+        npm install concurrently --save-dev
+
+    **7.1.**  Modificar el package.json agregando en el campo scripts el siguiente script:
+
+        "start": "concurrently \"vite\" \"npx json-server --watch db.json --port 3000\"",
+
+
+    **7.2.** Debería verse así:
+
+        "scripts": {
+            "start": "concurrently \"vite\" \"npx json-server --watch db.json --port 3000\"",
+            "dev": "vite",
+            "build": "vite build",
+            "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+            "preview": "vite preview"
+        },
+
+    **7.3.** Iniciar el servidor JSON ejecutando:
+
+           npm start
+
+* Se levanta el servidor local, permitiendo acceder a la API REST simulada en http://localhost:3000, y observará el archivo db.json en el puerto 3000 ruta videos:
+
+        http://localhost:3000/videos
+
+* Se levanta el proyecto en:
+
+        http://localhost:5173/
+
 ## 📁 Acceso al proyecto
 
 Ver la demo en [Vercel]()
@@ -138,6 +200,7 @@ Ver la demo en [Vercel]()
 
 ## Tecnologías secundarias
 * Node.js y npm (incluyendo node_modules)
+* JSON Server (db.json para simular API)
 * VsCode
 * Git
 * GitHub
