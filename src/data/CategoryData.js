@@ -3,17 +3,17 @@ const categoryData = [
   {
     id: 1,
     name: "FRONT END",
-    primaryColor: "#6BD1FF",
+    primaryColor: "var(--color-frontend)",
   },
   {
     id: 2,
     name: "BACK END",
-    primaryColor: "#00C86F",
+    primaryColor: "var(--color-backend)",
   },
   {
     id: 3,
     name: "INNOVACIÓN Y GESTIÓN",
-    primaryColor: "#FFBA05",
+    primaryColor: "var(--color-inov-gestao)",
   }
 ];
 

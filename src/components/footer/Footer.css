@@ -1,5 +1,5 @@
 .icons {
-    color: #fff;
+    color: var(--color-white);
     font-size: 20px;
     transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
     transition: all 0.2s ease;
@@ -29,7 +29,7 @@
         background-color: var(--color-black);
     }   
     .text {
-        color: #fff;
+        color: var(--color-white);
         font-size: 12px !important;
         margin-bottom: 6rem !important;
     }
