@@ -128,10 +128,6 @@ Inicia el proyecto en [http://localhost:5173/](http://localhost:5173/)
             │   ├── globalStyles
             │   │   ├── GlobalStyles.jsx
 
-6. Instalar el paquete de [uuid](https://www.npmjs.com/package/uuid), para que genere un ID único para cada elemento.
-
-        npm i uuid
-
 ## 📁 Acceso al proyecto
 
 Ver la demo en [Vercel]()

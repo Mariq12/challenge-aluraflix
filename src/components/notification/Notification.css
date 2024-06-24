@@ -1,0 +1,61 @@
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: 1rem;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+    width: clamp(350px, 100%, 400px);
+    height: auto;
+}
+
+.notification-content {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    background-color: transparent;
+}
+
+.notification-icons {
+    background-color: transparent;
+    margin: auto 0.5rem;
+}
+
+.notification-icon {
+    background: var(--color-white);
+    color: var(--color-backend);
+    font-size: 1.9rem; 
+    margin: 1rem 2rem 1rem 1rem;
+    font-weight: bold;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+.notification.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.notification p {
+    margin: 0;
+    background-color: transparent;
+    font-size: 1rem; 
+}
+
+.notification .close-button {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.notification .close-button:hover {
+    text-decoration: underline;
+}
