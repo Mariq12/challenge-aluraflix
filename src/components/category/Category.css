@@ -44,11 +44,17 @@
 }
 
 .card__container::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
+    background-color: var(--color-dark-gray-border);
     margin: 0 1.8rem;
 }
 
 .card {
     flex: 0 0 auto;
     width: 375px;
+}
+
+@media (max-width: 768px) {
+    .card__container::-webkit-scrollbar-track {
+        margin: 0 1rem;
+    }
 }
