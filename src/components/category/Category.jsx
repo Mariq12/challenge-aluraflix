@@ -6,15 +6,14 @@ const Category = ({ datos, cards, onCardClick, onCardDelete, onCardEdit }) => {
     const { primaryColor, name } = datos;
 
     const titleStyle = {
-        borderColor: primaryColor,
-        color: primaryColor
+        backgroundColor: primaryColor,
     };
 
     return (
         <>
             {cards && cards.length > 0 && (
                 <section className="category">
-                    <h3 style={titleStyle}>{name}</h3>
+                    <h3 className='category-title' style={titleStyle}>{name}</h3>
                     <div className="card__container">
                         {cards.map((card) => (
                             <Card 

@@ -4,18 +4,28 @@
     box-sizing: border-box;
     text-align: center;
     font-size: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.category h3 {
-    font-weight: 400;
-    color: var(--cor-form-text);
-    border-bottom: 4px solid;
-    display: inline-block;
-    padding-bottom: 0.5rem;
+.category-title {
+    color: var(--color-white);
+    font-weight: bold;
     margin-top: 1.3rem;
+    border-radius: 10px;
+    width: 18.551rem;
+    height: 5.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: clamp(1.25rem, 2.4vw, 2rem);
+    padding: 2px;
 }
 
 .card__container {
+    width: 100%;
     display: flex;
     overflow-x: auto;
     padding: 1rem;
