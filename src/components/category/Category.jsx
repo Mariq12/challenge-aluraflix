@@ -3,35 +3,54 @@ import PropTypes from 'prop-types';
 import './Category.css';
 import Card from '../card/Card';
 import Notification from '../notification/Notification';
+import ConfirmationDialog from '../confirmationDialog/ConfirmationDialog';
 
 const Category = ({ datos, cards, onCardClick, onCardDelete, onCardEdit }) => {
     const { primaryColor, name } = datos;
     const [showNotification, setShowNotification] = useState(false);
     const [notificationMessage, setNotificationMessage] = useState('');
-
-    const titleStyle = {
-        backgroundColor: primaryColor,
-    };
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const [cardToDelete, setCardToDelete] = useState(null);
 
     const handleDelete = (cardId, cardTitle) => {
-        const confirmDelete = window.confirm(`¿Estás seguro de que deseas eliminar "${cardTitle}"?`);
-        if (confirmDelete) {
-            onCardDelete(cardId);
-            setNotificationMessage(`"${cardTitle}" eliminado correctamente.`);
+        setCardToDelete({ id: cardId, title: cardTitle });
+        setShowConfirmation(true);
+    };
+
+    const confirmDelete = () => {
+        if (cardToDelete) {
+            onCardDelete(cardToDelete.id);
+            setNotificationMessage(`"${cardToDelete.title}" eliminado correctamente.`);
             setShowNotification(true);
             setTimeout(() => {
                 setShowNotification(false);
                 setNotificationMessage('');
-            }, 3000); 
+            }, 3000);
+            setShowConfirmation(false);
+            setCardToDelete(null);
         }
+    };
+
+    const cancelDelete = () => {
+        setShowConfirmation(false);
+        setCardToDelete(null);
     };
 
     return (
         <>
             {showNotification && <Notification message={notificationMessage} onClose={() => setShowNotification(false)} />}
+            {showConfirmation && (
+                <ConfirmationDialog 
+                    message={`¿Estás seguro de que deseas eliminar "${cardToDelete?.title}" ?`}
+                    title={cardToDelete?.title}
+                    primaryColor={primaryColor}
+                    onConfirm={confirmDelete}
+                    onCancel={cancelDelete}
+                />
+            )}
             {cards && cards.length > 0 && (
                 <section className="category">
-                    <h3 className='category-title' style={titleStyle}>{name}</h3>
+                    <h3 className='category-title' style={{ backgroundColor: primaryColor }}>{name}</h3>
                     <div className="card__container">
                         {cards.map((card) => (
                             <Card 
@@ -48,7 +67,7 @@ const Category = ({ datos, cards, onCardClick, onCardDelete, onCardEdit }) => {
             )}
         </>
     );
-}
+};
 
 Category.propTypes = {
     datos: PropTypes.shape({

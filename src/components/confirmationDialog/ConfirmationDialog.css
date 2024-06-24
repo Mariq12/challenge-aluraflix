@@ -1,0 +1,66 @@
+.confirmation-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-white);
+    padding: 1rem;
+    border-radius: 12px;
+    z-index: 10000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: clamp(350px, 100%, 400px);
+}
+
+.confirmation-dialog p {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    background-color: var(--color-white);
+}
+
+.confirmation-dialog-title {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    background-color: var(--color-white);
+}
+
+.confirmation-dialog button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.confirmation-yes {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border: 1px solid var(--color-blue);
+}
+
+.confirmation-yes:hover {
+    background-color: var(--color-gray-light);
+    color: var(--color-blue);
+}
+
+.confirmation-no {
+    background-color: var(--color-white);
+    color: var(--color-light-gray);
+    border: 1px solid var(--color-blue);
+}
+
+.confirmation-no:hover {
+    background-color: var(--color-gray-light);
+    color: var(--color-blue);
+}
+
+@media (max-width: 768px) {
+    .confirmation-dialog {
+        width: 90%;
+    }
+    .confirmation-dialog p {
+        font-size: 1rem;
+    }
+}
