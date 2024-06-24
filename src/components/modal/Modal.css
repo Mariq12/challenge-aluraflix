@@ -20,13 +20,14 @@
     border-radius: 0.938rem;
     max-width: 50rem;
     width: 100%;
-    max-height: 76.25rem;
+    max-height: 78.5rem;
     position: relative;
     display: flex;
     flex-direction: column;
     overflow: visible;
     align-items: center;
     margin-top: auto;
+    gap: 1rem;
 }
 
 .close-icon {
@@ -40,14 +41,13 @@
 }
 
 .modal-content h1 {
-    font-size: 3.75rem;
+    font-size: clamp(2rem, 3.4vw, 3.75rem);
     color: var(--color-blue-light);
     background: var(--color-bg-edit);
     width: 100%;
     max-width: 35.813rem;
     align-self: center; 
     text-align: left;
-    margin: 1rem 0 2.5rem 0;
 }
 
 .modal-form {

@@ -9,7 +9,7 @@
     z-index: 10000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-align: center;
-    width: clamp(350px, 100%, 400px);
+    width: clamp(100px, 400vw, 400px);
 }
 
 .confirmation-dialog p {
