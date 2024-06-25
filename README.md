@@ -192,6 +192,17 @@ Inicia el proyecto en [http://localhost:5173/](http://localhost:5173/)
 
 ## 📁 Acceso al proyecto
 
+### Deploy del proyecto en Vercel
+1. Se crea una carpeta `dist` ejecutando el comando:
+
+        npm run build
+
+2. Comentar la carpeta `dist` en gitignore
+
+            #dist
+
+3. Subir la carpeta `dist` a GitHub.*
+
 Ver la demo en [Vercel]()
 
 ## ✔️ Tecnologías
@@ -205,7 +216,6 @@ Ver la demo en [Vercel]()
 * Git
 * GitHub
 
-Ver la demo en [Vercel]()
 
 ## 🛠️ Herramientas
 ### Gestión
