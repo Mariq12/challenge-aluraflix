@@ -10,7 +10,7 @@ export const VideoProvider = ({ children }) => {
 
     const fetchVideos = async () => {
         try {
-            const response = await fetch('http://localhost:3000/video');
+            const response = await fetch('http://localhost:3000/videos');
             const data = await response.json();
             setVideos(data);
         } catch (error) {
