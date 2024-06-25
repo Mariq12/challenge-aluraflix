@@ -37,6 +37,9 @@
 ## Descripción del proyecto
 Aluraflix es una plataforma diseñada para gestionar vídeos, con funcionalidades como listar, registrar, actualizar y eliminar videos, implementando React con JavaScript. Ayudará a poner en práctica y reforzar tus conocimientos en esta librería, tales como componentización, uso de hooks, consumo de API, rutas entre otros.
 
+### ⚠️ Atención
+Este proyecto utiliza un servidor local creado con [json-server](https://www.npmjs.com/package/json-server).
+
 ## Características
 ### Gestión de Videos:
 
@@ -203,7 +206,9 @@ Inicia el proyecto en [http://localhost:5173/](http://localhost:5173/)
 
 3. Subir la carpeta `dist` a GitHub.*
 
-Ver la demo en [Vercel]()
+### Demo
+Ver la demo en [Vercel](https://challenge-aluraflix-olive.vercel.app/)
+Ver la demo v2 en [Vercel](https://challenge-aluraflix-v2.vercel.app/) con servidor falso creado con [My JSON Server](https://my-json-server.typicode.com/) 
 
 ## ✔️ Tecnologías
 * [React + Vite](https://vitejs.dev/guide/)
