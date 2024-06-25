@@ -207,8 +207,17 @@ Inicia el proyecto en [http://localhost:5173/](http://localhost:5173/)
 3. Subir la carpeta `dist` a GitHub.*
 
 ### Demo
-Ver la demo en [Vercel](https://challenge-aluraflix-olive.vercel.app/)
-Ver la demo v2 en [Vercel](https://challenge-aluraflix-v2.vercel.app/) con servidor falso creado con [My JSON Server](https://my-json-server.typicode.com/) 
+
+![challenge-aluraflix](https://github.com/Mariq12/challenge-aluraflix/assets/101030215/9f350de6-de55-45be-b728-bbb69357155f)
+
+Ver demo en [Vercel](https://challenge-aluraflix-olive.vercel.app/).
+
+Ver demo en [YouTube](https://www.youtube.com/watch?v=Fd6pl0_Hh1A).
+
+---
+Ver  demo del segundo proyecto desplegado en [Vercel](https://challenge-aluraflix-v2.vercel.app/) con servidor falso creado con [My JSON Server](https://my-json-server.typicode.com/) 
+
+Ir a repositorio [GitHub](https://github.com/Mariq12/challenge-aluraflix-v2)de la versión 2.
 
 ## ✔️ Tecnologías
 * [React + Vite](https://vitejs.dev/guide/)
