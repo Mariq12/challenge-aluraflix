@@ -83,7 +83,7 @@ function Footer() {
             <FooterText className='text'>
                 Diseñado por Alura.<br />
                 Desarrollado por Flor María Labanda P.<br />
-                18 de Junio de 20024
+                18 de Junio de 2024
             </FooterText>
         </StyledFooter>
     );
